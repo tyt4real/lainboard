@@ -34,3 +34,9 @@ An omega-simple and lightweight BBS system.
 6. ????????????
 7. Profit have fun or smth 
 
+---
+
+## Special thanks
+
+- Special thanks to ChurchOfTuring for letting me steal his theme management idea
+- Special thanks to whoever made the yotsuba theme :)
