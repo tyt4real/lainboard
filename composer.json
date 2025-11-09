@@ -1,0 +1,13 @@
+{
+    "name": "tyt4real/textboard",
+    "type": "project",
+    "require": {
+        "twig/twig": "^3.22"
+    },
+    "authors": [
+        {
+            "name": "tyt4real",
+            "email": "tyt4real@protonmail.com"
+        }
+    ]
+}

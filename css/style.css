@@ -1,0 +1,341 @@
+/* =======================
+   Root: Default Variables
+======================= */
+:root {
+  --background: #ffffee;
+  --background-light: #ffffee;
+  --background-dark: #f0e0d6;
+  --font_color: #800000;
+  --border_color: #d9bfb7;
+  --link_color: #0000ee;
+  --link_color_hover: #5555ff;
+  --quote_text: #789922;
+  --announcement-color: #b5a748;
+  --show-lain: none;
+  --show-yotsuba: block;
+}
+
+/* =======================
+   Lainrocks Theme
+======================= */
+:root[data-theme="lainrocks"] {
+  --font_color: #DBC2BEff;
+  --link_color: #7dc0d4;
+  --link_color_hover: #6094a3;
+  --font_color_shaded: #765A57ff;
+  --background: #111;
+  --background-light: #0e0e0e;
+  --background-dark: #022b2a;
+  --border_color: #6E6667ff;
+  --form_control_bg: #222222;
+  --announcement-color: #b5a748;
+  --quote_text: #789922;
+  --show-lain: block;
+  --show-yotsuba: none;
+}
+
+/* =======================
+   Yotsuba Theme
+======================= */
+:root[data-theme="yotsuba"] {
+  --background: #ffffee;
+  --background-light: #ffffee;
+  --background-dark: #f0e0d6;
+  --font_color: #800000;
+  --border_color: #d9bfb7;
+  --link_color: #0000ee;
+  --link_color_hover: #5555ff;
+  --quote_text: #789922;
+  --announcement-color: #b5a748;
+  --show-lain: none;
+  --show-yotsuba: block;
+}
+
+/* =======================
+   Base Body and Typography
+======================= */
+body {
+  background-color: var(--background);
+  color: var(--font_color);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--link_color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link_color_hover);
+}
+
+/* =======================
+   Header & Navbar
+======================= */
+#header {
+  width: 50%;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#navbar {
+  border-color: var(--border_color);
+  text-align: center;
+}
+
+/* =======================
+   Containers & Content
+======================= */
+.container {
+  border-color: var(--border_color) !important;
+}
+
+.content {
+  margin-top: 20px;
+  flex: 1; /* push footer down if using flex layout */
+}
+
+/* =======================
+   Cards
+======================= */
+.card {
+  color: var(--font_color);
+  background-color: var(--background-light);
+  border-color: var(--border_color);
+}
+
+.card-header {
+  color: var(--font_color);
+  background-color: var(--background-dark);
+}
+
+.announcement-card-header {
+  color: #000;
+  background-color: var(--announcement-color);
+}
+
+/* =======================
+   Links
+======================= */
+.whitelink:link,
+.whitelink:visited {
+  color: white;
+}
+
+/* =======================
+   Special Effects
+======================= */
+#titleText {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.banner {
+  width: 240px;
+  height: 60px;
+}
+
+.glow {
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00e600;
+}
+
+/* =======================
+   Positioning
+======================= */
+
+.bottom-right-image {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.theme-selector {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+#lain {
+  display: var(--show-lain);
+  width: auto;
+  height: 25%;
+}
+
+#yotsuba {
+  display: var(--show-yotsuba);
+  width: auto;
+  height: 10%;
+}
+
+input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =======================
+   Footer
+======================= */
+footer {
+  position: fixed;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-dark);
+  color: var(--font_color);
+  text-align: center;
+  padding: 10px 0;
+  transition: bottom 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+footer.show {
+  bottom: 0;
+}
+
+/* =======================
+   Textboard Styles
+======================= */
+div.sideArrows {
+	color: var(--border_color);
+
+	float: left;
+
+	margin-right: 2px;
+	margin-top: 0px;
+	margin-left: 2px;
+}
+
+div.post blockquote.postMessage {
+	display: block;
+}
+
+blockquote > span.quote {
+	color: var(--quote_text);
+}
+
+div.post div.postInfo span.postNum a {
+	text-decoration: none;
+	color: var(--font_color);
+}
+
+div.post div.postInfo span.postNum a:hover, .posteruid .hand:hover {
+	color: red !important;
+}
+
+div.post div.postInfo span.nameBlock {
+	display: inline-block;
+}
+
+div.post div.postInfo span.nameBlock span.name {
+	color: #117743;
+	font-weight: bold;
+}
+
+div.post div.postInfo span.nameBlock span.postertrip {
+	color: #117743;
+	font-weight: normal !important;
+}
+
+div.replyContainer div.post div.file div.fileInfo {
+	margin-left: 20px;
+}
+
+div.post {
+	margin: 4px 0;
+	overflow: hidden;
+}
+
+div.thread > div:nth-of-type(2) > div.reply {
+	margin-top: 2px !important;
+}
+
+div.op {
+	display: inline;
+}
+
+div.reply {
+	background-color: var(--background-dark);
+
+	border: 1px solid var(--border_color);
+	border-left: none;
+	border-top: none;
+
+	display: table;
+
+	padding: 2px;
+}
+
+div.reply input {
+	float: none;
+}
+
+table {
+	border-spacing: 1px;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form {
+  margin-top: 5px;
+}
+
+table.postForm > tbody > tr > td:first-child {
+	background-color: #EA8;
+	color: #800;
+	font-weight: bold;
+	border: 1px solid #800;
+	padding: 0 5px;
+
+	font-size: 10pt;
+}
+
+tr.rules td {
+	border: 0px !important;
+	background-color: transparent !important;
+	font-weight: normal !important;
+}
+
+td {
+	margin: 0px;
+	padding: 0px;
+
+	font-size: 10pt;
+}
+
+input[type=text], table.postForm > tbody textarea {
+	margin: 0px;
+	margin-right: 2px;
+	padding: 2px 4px 3px 4px;
+
+	border: 1px solid #AAA;
+	outline: none;
+
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+input[type=text]:focus, input:not([type]):focus, textarea:focus {
+	border: 1px solid #ea8 !important;
+}
+
+table.postForm > tbody > tr > td > input[type=text] {
+	width: 244px;
+}
+
+/* =======================
+   Misc
+======================= */
+ul {
+  list-style-type: square;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
