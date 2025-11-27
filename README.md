@@ -36,6 +36,20 @@ An omega-simple and lightweight BBS system.
 
 ---
 
+## Roadmap
+ - Post bumping - [X]
+ - Working replies - [X]
+ - Thread replies - [X]
+ - A nice homepage - []
+ - Universal Capcodes / Tripcodes - []
+ - OpenPGP poster verification - [] 
+ - Administration/Moderation panel - []
+ - Banners - []
+ - CSRF verification - [X]
+ - Setup a working example - []
+
+---
+
 ## Special thanks
 
 - Special thanks to ChurchOfTuring for letting me steal his theme management idea
