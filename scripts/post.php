@@ -1,32 +1,23 @@
 <?php
 // table: posts
 $config = include('../config.php');
-$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING) ?? 'Anonymous';
-$comment  = filter_input(INPUT_POST, 'com', FILTER_SANITIZE_STRING);
-
-//Connect to the SQLite databse if it doenst exist then fucking create it i guess
-try {
-    $db = new SQLite3($config['postdb']);
-} catch (Exception $e) {
-    die("Database connection failed: " . $e->getMessage());
+$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+if ($name === null || $name === false || $name === '') {
+    $name = 'Anonymous';
 }
-
-$createQuery = <<<SQL
-CREATE TABLE IF NOT EXISTS posts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    post TEXT NOT NULL,
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-    ipaddress TEXT NOT NULL
-);
-SQL;
-
-
-if ($db->exec($createQuery)) {
-    //posts table created or exists; continue posting
+$comment  = filter_input(INPUT_POST, 'com', FILTER_SANITIZE_STRING);
+$board = filter_input(INPUT_POST, 'board', FILTER_SANITIZE_STRING);
+$replyTo = filter_input(INPUT_POST, 'replyto', FILTER_SANITIZE_STRING);
     if ($comment == '' || $comment == NULL) {
         echo "Do not post empty posts, are you stupid?";
     } else {
+        require_once 'utils.php';
+        // Verify CSRF token
+        $csrf = filter_input(INPUT_POST, 'csrf_token', FILTER_SANITIZE_STRING);
+        if (!verifyCsrfToken($csrf)) {
+            http_response_code(403);
+            die("Invalid CSRF token");
+        }
         // APPLY WORDFILTERS
         require_once 'wordfilter.php';
         $filters = new FilterManager();
@@ -35,42 +26,19 @@ if ($db->exec($createQuery)) {
         $filters->addFilter(new CapsFilter());
 
         //RATELIMIT
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $limitFile = __DIR__ . "/utilities/rate_limit_$ip.txt";
-        $waitTime = $config['ratelimittime'];
-
-        $lastTime = 0;
-        if (file_exists($limitFile)) {
-            $lastTime = (int)file_get_contents($limitFile);
-        }
-
-        $now = time();
-
-        if ($now - $lastTime < $waitTime) {
-            $remaining = $waitTime - ($now - $lastTime);
-            http_response_code(429); // Too Many Requests
-            die("Rate limit exceeded. Try again in $remaining seconds.");
-        }
-
-        file_put_contents($limitFile, $now);
-
-        //Post to DB
-        $stmt = $db->prepare("INSERT INTO posts (name, post, ipaddress) VALUES (:name, :post, :ipaddr)");
-        $stmt->bindValue(':name', $name, SQLITE3_TEXT);
-        $stmt->bindValue(':post', $filters->applyFilters($comment), SQLITE3_TEXT);
-        $stmt->bindValue(':ipaddr', $ip);
-        $result = $stmt->execute();
-        if ($result) {
-            $db->close();
-            //redirect
-            header("Location: /");
-            die();
+        rateLimit();
+        
+        if (isset($config['pages'][$board])) {
+                $insertId = postToDB($name, $filters->applyFilters($comment), $_SERVER['REMOTE_ADDR'], 1, $board, 0);
+                if ($insertId !== false && $insertId > 0) {
+                    header("Location: /thread/" . intval($insertId));
+                    die();
+                } else {
+                    echo "Could not post man sry";
+                    die();
+                }
         } else {
-            echo "Could not post man sry";
+            echo "Stop passing bad arguments man";
+            die();
         }
     }
-} else {
-    echo "Error creating table: " . $db->lastErrorMsg() . "\n";
-    $db->close();
-    exit(-1);
-}

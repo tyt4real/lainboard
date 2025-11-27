@@ -8,9 +8,9 @@
 			<meta name="keywords" content="lain, xmpp, xmpp server, im"/>
 			<meta name="author" content="tyt4real"/>
 
-			<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+			<link href="/css/bootstrap.min.css" rel="stylesheet"/>
 			<link rel="icon" type="image/x-icon" href="../images/favicon.ico"/>
-			<link href="../css/style.css" rel="stylesheet"/>
+			<link href="/css/style.css" rel="stylesheet"/>
             <!-- <link href="../css/4chanstyles.css" rel="stylesheet"/> -->
 			<title>Textboard |
 				{% block title %}{% endblock %}
@@ -18,11 +18,11 @@
 		{% endblock %}
 	</head>
 	<body>
-		 <script src="./js/styleinit.js"></script>
-		 <script src="./js/themeManager.js"></script>
+		 <script src="/js/styleinit.js"></script>
+		 <script src="/js/themeManager.js"></script>
 			<div id="content">{% block content %}{% endblock %} </div>
-			<img src="./images/laintransparent.png" class="bottom-right-image hide-on-mobile" id="lain">
-			<img src="./images/yotsuba.png" class="bottom-right-image hide-on-mobile" id="yotsuba">
+			<img src="/images/laintransparent.png" class="bottom-right-image hide-on-mobile" id="lain">
+			<img src="/images/yotsuba.png" class="bottom-right-image hide-on-mobile" id="yotsuba">
 			<footer>
 				{% block footer %}
 					<div id="footer" style="text-align: center; bottom: 0;">
@@ -33,6 +33,9 @@
 							<option value="lainrocks">Default lainrocks</option>
 							<option value="yotsuba">Yotsuba</option>
 						</select>
+						<div class="pagination-wrapper">
+							{{ renderPagination() }}
+						</div>
 					</div>
 				{% endblock %}
 			</footer>

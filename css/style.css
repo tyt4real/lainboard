@@ -156,6 +156,49 @@ a:hover {
   position: fixed;
   bottom: 0;
   left: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+}
+
+.pagination-wrapper {
+  display: inline-block;
+}
+
+.pagination {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.pagination .page,
+.pagination .prev,
+.pagination .next {
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.04);
+  color: var(--font_color);
+  border: 1px solid var(--border_color);
+}
+
+.pagination .page.current {
+  font-weight: bold;
+  background: rgba(0,0,0,0.08);
+}
+
+/* Responsive: move pagination into footer center on narrow screens */
+@media (max-width: 600px) {
+  .theme-selector {
+    left: 0;
+    right: 0;
+    justify-content: center;
+  }
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 #lain {
@@ -209,6 +252,14 @@ div.sideArrows {
 	margin-left: 2px;
 }
 
+#boardTitle {
+	font-family: Tahoma, sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+	letter-spacing: -2px;
+	margin-top: 0px;
+}
+
 div.post blockquote.postMessage {
 	display: block;
 }
@@ -249,6 +300,21 @@ div.post {
 	overflow: hidden;
 }
 
+/* Ensure posts always have a background so theme variables missing won't hide them */
+.post {
+  background-color: var(--background-light) !important;
+  border: 1px solid var(--border_color);
+  padding: 2px;
+}
+
+/* Replies explicitly use the darker background */
+.post.reply, div.reply {
+  /*background-color: var(--background-dark) !important; */
+  border: 1px solid var(--border_color);
+  border-left: none;
+  border-top: none;
+}
+
 div.thread > div:nth-of-type(2) > div.reply {
 	margin-top: 2px !important;
 }
@@ -269,6 +335,51 @@ div.reply {
 	padding: 2px;
 }
 
+.post.op {
+  background-color: var(--background-dark) !important;
+  border: 1px solid var(--border_color);
+  border-left: none;
+  border-top: none;
+  padding: 2px;
+}
+
+.postContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.postContainer .post {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 600px) {
+  .postContainer { flex-direction: column; }
+}
+
+.lastReplyPreview {
+  margin-left: 18px;
+}
+.lastReplyPreview .previewReply {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.lastReplyPreview .postInfo {
+  padding: 0 4px 2px 0;
+}
+.postMessage.preview {
+  margin: 4px 0 8px 0;
+  /* color: #666; */
+  color: var(--font_color);
+  font-size: 0.95em;
+  border-left: 3px solid var(--border_color);
+  padding-left: 8px;
+  background: transparent;
+}
+.lastReplyPreview .postNum {
+  color: var(--font_color);
+}
+
 div.reply input {
 	float: none;
 }
@@ -285,10 +396,10 @@ form {
 }
 
 table.postForm > tbody > tr > td:first-child {
-	background-color: #EA8;
-	color: #800;
+	background-color: var(--background-dark );
+	color: var(--font_color);
 	font-weight: bold;
-	border: 1px solid #800;
+	border: 1px solid var(--font_color);
 	padding: 0 5px;
 
 	font-size: 10pt;

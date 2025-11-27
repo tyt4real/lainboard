@@ -1,0 +1,118 @@
+{% extends "base.twig" %}
+
+{% block title %}Home
+{% endblock %}
+{% block head %}
+	{{ parent() }}
+	<!--empty for now lol-->
+{% endblock %}
+{% block content %}
+	{{ renderHeader() }}
+	<h2 style="text-align: center;" id="boardTitle">
+		/{{ board }}/
+	</h2>
+	{{ renderNavbar() }}
+	<h3 style="text-align: center;">Reply to
+		{{ threadId }}</h3>
+	<div id="postMenu">
+		<form name="post" action="/scripts/reply.php" method="post">
+			<input type="hidden" name="replyto" value="{{ threadId }}">
+			<input type="hidden" name="board" value="{{ board }}">
+			<table class="postForm hideMobile" id="postForm" style="display: table;">
+				<tbody>
+					<tr data-type="Name">
+						<td>Name</td>
+						<td>
+							<input name="name" type="text" value="Anonymous" tabindex="1" placeholder="Anonymous">
+						</td>
+					</tr>
+					<tr data-type="Comment">
+						<td>Comment</td>
+						<td>
+							    <textarea id="postText" name="com" cols="48" rows="4" wrap="soft" tabindex="2"></textarea>
+								    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+						</td>
+					</tr>
+					<tr data-type="Submit">
+						<td>
+							<input type="submit" value="Reply" tabindex="10">
+						</td>
+						<td></td>
+					</tr>
+					<tr class="rules">
+						<td colspan="2">
+							<ul class="rules">
+								{{ renderRules() }}
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="2">
+							<div id="postFormError"></div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+	</div>
+	{{ renderThread(threadId) }}
+	<script>
+	(function(){
+		function insertAtCursor(el, text) {
+			if (el.selectionStart || el.selectionStart === 0) {
+				var start = el.selectionStart;
+				var end = el.selectionEnd;
+				var value = el.value;
+				el.value = value.substring(0, start) + text + value.substring(end);
+				var pos = start + text.length;
+				el.selectionStart = el.selectionEnd = pos;
+			} else {
+				el.value += text;
+			}
+		}
+
+		document.addEventListener('click', function(e){
+			var target = e.target;
+			while (target && target !== document) {
+				if (target.classList && (target.classList.contains('quoteLink') || target.classList.contains('quotelink'))) {
+					e.preventDefault();
+					var pid = target.getAttribute('data-postid');
+					if (!pid) return;
+					var ta = document.getElementById('postText');
+					if (!ta) return;
+					var insert = '>>' + pid + '\n';
+					insertAtCursor(ta, insert);
+					ta.focus();
+					return;
+				}
+				target = target.parentNode;
+			}
+		}, false);
+
+		document.addEventListener('DOMContentLoaded', function(){
+			try {
+				var params = new URLSearchParams(window.location.search);
+				var q = params.get('quote');
+				if (q) {
+					var ta = document.getElementById('postText');
+					if (ta) {
+						var insert = '>>' + q + '\n';
+						if (ta.value.trim() === '') {
+							ta.value = insert;
+						} else {
+							ta.value = insert + ta.value;
+						}
+						ta.focus();
+						ta.scrollIntoView({behavior: 'smooth', block: 'center'});
+					}
+				}
+			} catch (err) {
+				// ignore in older browsers
+			}
+		});
+	})();
+	</script>
+
+{% endblock %}

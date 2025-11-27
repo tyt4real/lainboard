@@ -8,66 +8,53 @@
 {% endblock %}
 {% block content %}
 	{{ renderHeader() }}
+	<h2 style="text-align: center;" id="boardTitle">
+		/{{ current_page }}/ -
+		{{ boardname }}
+	</h2>
 	{{ renderNavbar() }}
 	<div id="postMenu">
-	<form name="post" action="/scripts/post.php" method="post">
-		<table class="postForm hideMobile" id="postForm" style="display: table;">
-			<tbody>
-				<tr data-type="Name">
-					<td>Name</td>
-					<td>
-					<input name="name" type="text" value="Anonymous" tabindex="1" placeholder="Anonymous">
-					</td>
-				</tr>
-				<tr data-type="Comment">
-					<td>Comment</td>
-					<td>
-						<textarea name="com" cols="48" rows="4" wrap="soft" tabindex="2"></textarea>
-					</td>
-				</tr>
-				<tr data-type="Submit">
-				<td>
-					<input type="submit" value="Post" tabindex="10"><Td>
-				</tr>
-				<tr class="rules">
-					<td colspan="2">
-						<ul class="rules">
+		<form name="post" action="/scripts/post.php" method="post">
+			<table class="postForm hideMobile" id="postForm" style="display: table;">
+				<tbody>
+					<tr data-type="Name">
+						<td>Name</td>
+						<td>
+							<input name="name" type="text" value="Anonymous" tabindex="1" placeholder="Anonymous">
+						</td>
+					</tr>
+					<tr data-type="Comment">
+						<td>Comment</td>
+						<td>
+							<textarea name="com" cols="48" rows="4" wrap="soft" tabindex="2"></textarea>
+						</td>
+					</tr>
+					<tr data-type="Submit">
+						<td>
+							<input type="submit" value="Post" tabindex="10">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+						</td>
+						<td></td>
+					</tr>
+					<input type="hidden" name="board" value="{{ current_page }}">
+					<tr class="rules">
+						<td colspan="2">
+							<ul class="rules">
 								{{ renderRules() }}
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="2">
-						<div id="postFormError"></div>
-					</td>
-				</tr>
-			</tfoot>
-		</table>
-	</form>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="2">
+							<div id="postFormError"></div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
 	</div>
 	{{ renderPosts() }}
-
-{# 	<div class="postContainer replyContainer" id="pcPOST ID GOES HERE">
-		<div class="sideArrows" id="saPOST ID GOES HERE">&gt;&gt;</div>
-		<div id="pPOST ID GOES HERE" class="post reply">
-			<div
-				class="postInfo desktop" id="piPOST ID GOES HERE">
-				<span class="nameBlock">
-					<span class="name">USERNAME HOES HERE</span>
-				</span>
-				<span class="dateTime" data-utc="1762466133">DATE GOES HERE</span>
-				<span class="postNum desktop">
-					<a href="/" title="Link to this post">No.</a>
-					<a href="/" title="Reply to this post">POST ID GOES HERE</a>
-				</span>
-				<a href="#" class="postMenuBtn" title="Post menu" data-cmd="post-menu">▶</a>
-			</div>
-			<blockquote class="postMessage" id="mPOST ID GOES HERE">
-				POST MESSAGE GOES HERE
-			</blockquote>
-		</div>
-	</div> #}
 
 {% endblock %}
