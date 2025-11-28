@@ -3,7 +3,7 @@ function rateLimit()
 {
     $config = include __DIR__ . '/../config.php';
     $ip = $_SERVER['REMOTE_ADDR'];
-    // Use a hashed filename for the IP so IPv6 colons or other characters don't break filenames
+    // Use a hashed filename for the IP so IPv6 colons or other characters don't break filenames (fuck ipv6)
     $ipHash = md5($ip);
     $limitDir = __DIR__ . '/utilities';
     if (!is_dir($limitDir)) {
