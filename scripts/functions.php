@@ -156,25 +156,25 @@ function registerFunc()
 
                     $postHtml = sprintf(
                         '<div class="postContainer replyContainer" id="pc%d">'
-                        . '<div class="sideArrows" id="sa%d">&gt;&gt;</div>'
-                        . '<div id="p%d" class="post op">'
-                        . '<div class="postInfo desktop" id="pi%d">'
-                        . '<span class="nameBlock">'
-                        . '<span class="name">%s</span>'
-                        . '</span>'
-                        . '<span class="dateTime" data-utc="%d">%s</span>'
-                        . '<span class="postNum desktop">'
-                        . '<a href="/thread/%d" title="View thread">No.</a>'
-                        . '<a href="/thread/%d?quote=%d#p%d" class="quoteLink" data-postid="%d" title="Quote this post">%d</a>'
-                        . '</span>'
-                        . '<span class="replyCount">(%d replies)</span>'
-                        . '<a href="#" class="postMenuBtn" title="Post menu" data-cmd="post-menu">▶</a>'
-                        . '</div>'
-                        . '<blockquote class="postMessage" id="m%d">'
-                        . '%s'
-                        . '</blockquote>'
-                        . '</div>'
-                        . '</div>',
+                            . '<div class="sideArrows" id="sa%d">&gt;&gt;</div>'
+                            . '<div id="p%d" class="post op">'
+                            . '<div class="postInfo desktop" id="pi%d">'
+                            . '<span class="nameBlock">'
+                            . '<span class="name">%s</span>'
+                            . '</span>'
+                            . '<span class="dateTime" data-utc="%d">%s</span>'
+                            . '<span class="postNum desktop">'
+                            . '<a href="/thread/%d" title="View thread">No.</a>'
+                            . '<a href="/thread/%d?quote=%d#p%d" class="quoteLink" data-postid="%d" title="Quote this post">%d</a>'
+                            . '</span>'
+                            . '<span class="replyCount">(%d replies)</span>'
+                            . '<a href="#" class="postMenuBtn" title="Post menu" data-cmd="post-menu">▶</a>'
+                            . '</div>'
+                            . '<blockquote class="postMessage" id="m%d">'
+                            . '%s'
+                            . '</blockquote>'
+                            . '</div>'
+                            . '</div>',
                         $row['id'],   // pc id
                         $row['id'],   // sa id
                         $row['id'],   // p id
@@ -209,17 +209,17 @@ function registerFunc()
                             $pdisplay = date('m/d/Y H:i', $ptimestamp);
 
                             $previewHtml = '';
-                            $previewHtml .= '<div class="postContainer replyContainer lastReplyPreview" id="pc_preview_'. $row['id'] .'">';
-                            $previewHtml .= '<div class="sideArrows" id="sa_preview_'. $row['id'] .'">&gt;&gt;</div>';
-                            $previewHtml .= '<div id="p'. $pr['id'] .'" class="post reply previewReply">';
-                            $previewHtml .= '<div class="postInfo desktop" id="pi'. $pr['id'] .'">';
-                            $previewHtml .= '<span class="nameBlock"><span class="name">'. $pname .'</span></span>';
-                            $previewHtml .= '<span class="dateTime" data-utc="'. $ptimestamp .'">'. $pdisplay .'</span>';
+                            $previewHtml .= '<div class="postContainer replyContainer lastReplyPreview" id="pc_preview_' . $row['id'] . '">';
+                            $previewHtml .= '<div class="sideArrows" id="sa_preview_' . $row['id'] . '">&gt;&gt;</div>';
+                            $previewHtml .= '<div id="p' . $pr['id'] . '" class="post reply previewReply">';
+                            $previewHtml .= '<div class="postInfo desktop" id="pi' . $pr['id'] . '">';
+                            $previewHtml .= '<span class="nameBlock"><span class="name">' . $pname . '</span></span>';
+                            $previewHtml .= '<span class="dateTime" data-utc="' . $ptimestamp . '">' . $pdisplay . '</span>';
                             $previewHtml .= '<span class="postNum desktop">';
-                            $previewHtml .= '<a href="/thread/'. $row['id'] .'" title="Link to this thread">No.</a>';
-                            $previewHtml .= '<a href="/thread/'. $row['id'] .'?quote='. $pr['id'] .'#p'. $pr['id'] .'" class="quoteLink" data-postid="'. $pr['id'] .'" title="Quote this post">'. $pr['id'] .'</a>';
+                            $previewHtml .= '<a href="/thread/' . $row['id'] . '" title="Link to this thread">No.</a>';
+                            $previewHtml .= '<a href="/thread/' . $row['id'] . '?quote=' . $pr['id'] . '#p' . $pr['id'] . '" class="quoteLink" data-postid="' . $pr['id'] . '" title="Quote this post">' . $pr['id'] . '</a>';
                             $previewHtml .= '</span></div>';
-                            $previewHtml .= '<blockquote class="postMessage preview" id="m'. $pr['id'] .'">'. $formatPost($pr['post'], $row['id']) .'</blockquote>';
+                            $previewHtml .= '<blockquote class="postMessage preview" id="m' . $pr['id'] . '">' . $formatPost($pr['post'], $row['id']) . '</blockquote>';
                             $previewHtml .= '</div></div>';
                             echo $previewHtml;
                         }
@@ -319,26 +319,26 @@ function registerFunc()
                 $ts = (int)$row['created_at'];
                 $displayDate = date('m/d/Y H:i', $ts);
 
-                    $postHtml = sprintf(
+                $postHtml = sprintf(
                     '<div class="postContainer replyContainer" id="pc%d">'
-                    . '<div class="sideArrows" id="sa%d">&gt;&gt;</div>'
-                    . '<div id="p%d" class="%s">'
-                    . '<div class="postInfo desktop" id="pi%d">'
-                    . '<span class="nameBlock">'
-                    . '<span class="name">%s</span>'
-                    . '</span>'
-                    . '<span class="dateTime" data-utc="%d">%s</span>'
-                    . '<span class="postNum desktop">'
-                    . '<a href="/thread/%d#p%d" title="Permalink">No.</a>'
-                    . '<a href="#p%d" class="quoteLink" data-postid="%d" title="Quote this post">%d</a>'
-                    . '</span>'
-                    . '<a href="#" class="postMenuBtn" title="Post menu" data-cmd="post-menu">▶</a>'
-                    . '</div>'
-                    . '<blockquote class="postMessage" id="m%d">'
-                    . '%s'
-                    . '</blockquote>'
-                    . '</div>'
-                    . '</div>',
+                        . '<div class="sideArrows" id="sa%d">&gt;&gt;</div>'
+                        . '<div id="p%d" class="%s">'
+                        . '<div class="postInfo desktop" id="pi%d">'
+                        . '<span class="nameBlock">'
+                        . '<span class="name">%s</span>'
+                        . '</span>'
+                        . '<span class="dateTime" data-utc="%d">%s</span>'
+                        . '<span class="postNum desktop">'
+                        . '<a href="/thread/%d#p%d" title="Permalink">No.</a>'
+                        . '<a href="#p%d" class="quoteLink" data-postid="%d" title="Quote this post">%d</a>'
+                        . '</span>'
+                        . '<a href="#" class="postMenuBtn" title="Post menu" data-cmd="post-menu">▶</a>'
+                        . '</div>'
+                        . '<blockquote class="postMessage" id="m%d">'
+                        . '%s'
+                        . '</blockquote>'
+                        . '</div>'
+                        . '</div>',
                     $row['id'],   // pc id
                     $row['id'],   // sa id
                     $row['id'],   // p id
@@ -361,6 +361,43 @@ function registerFunc()
         } else {
             echo "Error fetching posts";
         }
+    }));
+    $twig->addFunction(new \Twig\TwigFunction('getPopularThreads', function ($limit = 6) {
+        $config = include 'config.php';
+        try {
+            $db = new SQLite3($config['postdb']);
+        } catch (Exception $e) {
+            return [];
+        }
+
+        $stmt = $db->prepare("SELECT threadNumber, COUNT(*) as reply_count FROM posts WHERE isOP = 0 GROUP BY threadNumber ORDER BY reply_count DESC LIMIT :limit");
+        $stmt->bindValue(':limit', $limit, SQLITE3_INTEGER);
+        $result = $stmt->execute();
+
+        $popularThreads = [];
+        if ($result) {
+            while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+                $popularThreads[] = [
+                    'threadNumber' => (int)$row['threadNumber'],
+                    'reply_count' => (int)$row['reply_count']
+                ];
+            }
+        }
+
+        $db->close();
+        //return $popularThreads;
+        //render the threads in a html table.
+        //TODO: all the threads show up with the thread number 0. fix that shiet
+        $html = '<table class="popular-threads"><tr><th>Thread No.</th><th>Replies</th></tr>';
+        foreach ($popularThreads as $thread) {
+            $html .= '<tr>';
+            $html .= '<td><a href="/thread/' . intval($thread['threadNumber
+']) . '">No. ' . intval($thread['threadNumber']) . '</a></td>';
+            $html .= '<td>' . intval($thread['reply_count']) . '</td>';
+            $html .= '</tr>';
+        }
+        $html .= '</table>';
+        return new \Twig\Markup($html, 'UTF-8');
     }));
     return $twig;
 }

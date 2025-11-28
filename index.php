@@ -32,7 +32,16 @@ if ($threadPos !== false && isset($segments[$threadPos + 1])) {
     ]);
     exit;
 }
-
+if ($requestUri == '/home') {
+    echo $twig->render('home.twig', [
+        'pages' => $config['pages'],
+        //passing site configuration to the template.
+        'headertitle' => $config['headertitle'],
+        'sitename' => $config['sitename'],
+        'sitedescription' => $config['sitedescription'],
+    ]);
+    exit;
+}
 // Otherwise, normal page rendering
 $board = $segments[0] ?? 'b';
 $pageSlug = $board;
