@@ -17,6 +17,9 @@ return [
     //Site Post Menu
     'ruleslink' => '/rules.php',
 
+    // How many reply anchors to show under an OP on the board index (defaults to 8)
+    'max_reply_anchors' => 8,
+
     //Post location
     'postdb' => 'path to database, canonical path recommended',
 

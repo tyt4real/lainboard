@@ -9,19 +9,23 @@ $replyTo = filter_input(INPUT_POST, 'replyto', FILTER_SANITIZE_STRING);
 $board = filter_input(INPUT_POST, 'board', FILTER_SANITIZE_STRING);
 require_once 'utils.php';
 require_once 'wordfilter.php';
+// determine authenticated user id (if any) to persist user_id for authoritative capcodes
+$authUser = current_admin_user();
+$authId = isset($authUser['id']) ? intval($authUser['id']) : null;
 // Verify CSRF
 $csrf = filter_input(INPUT_POST, 'csrf_token', FILTER_SANITIZE_STRING);
 if (!verifyCsrfToken($csrf)) {
     http_response_code(403);
     die("Invalid CSRF token");
 }
-//Get the OP's post
+//Get the OP's post from the board-specific table
 try {
     $db = new SQLite3($config['postdb']);
 } catch (Exception $e) {
     die("Database connection failed: " . $e->getMessage());
 }
-$stmt = $db->prepare("SELECT * FROM posts WHERE id = :id");
+$table = boardTableName($board);
+$stmt = $db->prepare("SELECT * FROM " . $table . " WHERE id = :id");
 $stmt->bindValue(':id', $replyTo, SQLITE3_TEXT);
 $OPost = $stmt->execute();
 
@@ -44,9 +48,16 @@ if ($OPost) {
     }
 
     // Attach reply to the resolved thread id
-    $insertId = postToDB($name, $filters->applyFilters($comment), $_SERVER['REMOTE_ADDR'], 0, $post['board'], $threadId);
+
+    //Check if the post is empty.
+    if($comment == '' || $comment == NULL) {
+        echo "Do not post empty posts, are you stupid?";
+        die();
+    }
+
+    $insertId = postToDB($name, $filters->applyFilters($comment), $_SERVER['REMOTE_ADDR'], 0, $board, $threadId, $authId);
     if ($insertId !== false && $insertId > 0) {
-        header("Location: /thread/" . intval($threadId));
+            header("Location: /" . rawurlencode($board) . "/thread/" . intval($threadId));
         die();
     } else {
         echo "Could not post man sry";

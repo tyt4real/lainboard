@@ -450,3 +450,66 @@ ul {
     display: none;
   }
 }
+
+/* Reply anchors shown under OP on board index (>>123) */
+.replyList {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.95em;
+  color: var(--font_color);
+}
+.replyList .replyAnchor {
+  color: var(--link_color);
+  margin-right: 6px;
+}
+.replyList .replyAnchor:hover {
+  color: var(--link_color_hover);
+  text-decoration: underline;
+}
+.replyList .replyMore {
+  color: var(--font_color);
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+/* Post counter (gif digits) */
+.post-counter {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+.post-counter-digit {
+  image-rendering: pixelated;
+}
+.post-counter-label {
+  font-size: 0.9rem;
+  color: var(--font_color);
+  margin-left: 8px;
+}
+
+/* =======================
+   Capcodes / Staff labels
+   ======================= */
+.capcode {
+  font-weight: bold;
+  display: inline-block;
+}
+.capcode .capcode-label {
+  font-weight: normal;
+  margin-left: 6px;
+  font-size: 0.85em;
+  opacity: 0.95;
+  padding: 1px 6px;
+  border-radius: 3px;
+  color: white;
+}
+.cap-administrator .capcode-label {
+  background: #c0392b; /* strong red */
+}
+.cap-moderator .capcode-label {
+  background: #2980b9; /* blue */
+}
+.capcode.cap-administrator { color: #ffd7d1; }
+.capcode.cap-moderator { color: #dbeeff; }
+

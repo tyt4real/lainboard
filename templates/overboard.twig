@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block title %}Overboard{% endblock %}
+
+{% block content %}
+  {{ renderHeader() }}
+  {{ renderNavbar() }}
+  <div style="max-width:1100px;margin:16px auto;">
+    <div class="card">
+      <div class="card-header"><h3>overboard</h3></div>
+      <div class="card-body">
+        {{ renderOverboard() }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

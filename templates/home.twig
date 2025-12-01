@@ -7,9 +7,13 @@
 	<!--empty for now lol-->
 {% endblock %}
 {% block content %}
-	{{ renderHeader() }}
+	{% if homepage.show_header is defined and homepage.show_header %}
+		{{ renderHeader() }}
+	{% endif %}
 	{# stuff to be added #}
-	{{ renderNavbar() }}
+	{% if homepage.show_navbar is defined and homepage.show_navbar %}
+		{{ renderNavbar() }}
+	{% endif %}
 	<div id="homepage-content" style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 20px;">
 		<div class="card" style="width: 50%">
 			<div class="card-header">
@@ -25,14 +29,36 @@
                 </ul>
             </div>
 		</div>
-        <div class="card" style="width: 50%">
+		{% if homepage.show_popular_threads is defined and homepage.show_popular_threads %}
+		<div class="card" style="width: 50%">
 			<div class="card-header">
 				<h3>Popular threads</h3>
 			</div>
 			<div class="card-body">
-                {{ getPopularThreads() }}
-            </div>
+				{{ getPopularThreads() }}
+			</div>
 		</div>
+		{% endif %}
+		{% if homepage.show_boards is defined and homepage.show_boards %}
+		<div class="card" style="width: 50%">
+			<div class="card-header">
+				<h3>Boards</h3>
+			</div>
+			<div class="card-body" style="display:flex; justify-content:center; align-items:center;">
+				{{ renderBoards() }}
+			</div>
+		</div>
+		{% endif %}
+		{% if homepage.show_post_counter is defined and homepage.show_post_counter %}
+		<div class="card" style="width: 50%">
+			<div class="card-header">
+				<h3>Total posts</h3>
+			</div>
+			<div class="card-body" style="display:flex; justify-content:center; align-items:center;">
+				{{ renderPostCounter() }}
+			</div>
+		</div>
+		{% endif %}
 	</div>
 
 

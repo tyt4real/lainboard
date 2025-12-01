@@ -1,0 +1,119 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div style="max-width:900px;margin:20px auto;">
+    <div class="card">
+      <div class="card-header"><h3>Administration Panel</h3></div>
+      <div class="card-body">
+        <p>Logged in as: <strong>{{ user.username }}</strong> ({{ user.role }})</p>
+        <p>Total posts: {{ total_posts }}</p>
+        <hr />
+
+        <h4>Users</h4>
+        <table>
+          <tr><th>ID</th><th>Username</th><th>Role</th><th>Created</th></tr>
+          {% for u in users %}
+            <tr>
+              <td>{{ u.id }}</td>
+              <td>{{ u.username }}</td>
+              <td>{{ u.role }}</td>
+              <td>{{ u.created_at|date("Y-m-d H:i") }}</td>
+            </tr>
+          {% endfor %}
+        </table>
+
+          <hr />
+          <h4>Recent posts (up to 500)</h4>
+          <table>
+            <tr><th>ID</th><th>Board</th><th>OP</th><th>Thread</th><th>Name</th><th>IP</th><th>Created</th><th>Actions</th></tr>
+            {% for p in posts %}
+              <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.board }}</td>
+                <td>{{ p.isOP ? 'yes' : 'no' }}</td>
+                <td>{{ p.threadNumber }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.ipaddress }}</td>
+                <td>{{ p.created_at|date('Y-m-d H:i') }}</td>
+                <td>
+                  <form method="post" action="/scripts/admin_action.php" style="display:inline">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                    <input type="hidden" name="action" value="delete_post" />
+                    <input type="hidden" name="board" value="{{ p.board }}" />
+                    <input type="hidden" name="post_id" value="{{ p.id }}" />
+                    <button type="submit">Delete post</button>
+                  </form>
+                  {% if p.user_id and p.user_id > 0 %}
+                  <form method="post" action="/scripts/admin_action.php" style="display:inline;margin-left:6px;">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                    <input type="hidden" name="action" value="delete_user" />
+                    <input type="hidden" name="user_id" value="{{ p.user_id }}" />
+                    <button type="submit" onclick="return confirm('Delete user id {{ p.user_id }}? This is irreversible')">Delete user</button>
+                  </form>
+                  {% endif %}
+                  <form method="post" action="/scripts/admin_action.php" style="display:inline;margin-left:6px;">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                    <input type="hidden" name="action" value="ban_ip" />
+                    <input type="hidden" name="ip" value="{{ p.ipaddress }}" />
+                    <input type="hidden" name="reason" value="Banned via admin panel" />
+                    <button type="submit">Ban IP</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </table>
+
+        {% if user.role == 'administrator' %}
+        <h4>Create user</h4>
+        <form method="post" action="/scripts/admin_action.php">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+          <input type="hidden" name="action" value="create_user" />
+          <div><label>Username</label><input name="username"></div>
+          <div><label>Password</label><input name="password" type="password"></div>
+          <div><label>Role</label>
+            <select name="role"><option value="moderator">moderator</option><option value="administrator">administrator</option></select>
+          </div>
+          <div style="margin-top:8px;"><button type="submit">Create</button></div>
+        </form>
+        {% endif %}
+
+        <h4>Delete Post</h4>
+        <form method="post" action="/scripts/admin_action.php">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+          <input type="hidden" name="action" value="delete_post" />
+          <div><label>Board</label><input name="board" placeholder="b"></div>
+          <div><label>Post ID</label><input name="post_id"></div>
+          <div style="margin-top:8px;"><button type="submit">Delete</button></div>
+        </form>
+
+        <h4>Ban IP</h4>
+        <form method="post" action="/scripts/admin_action.php">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+          <input type="hidden" name="action" value="ban_ip" />
+          <div><label>IP</label><input name="ip"></div>
+          <div><label>Reason</label><input name="reason"></div>
+          <div style="margin-top:8px;"><button type="submit">Ban</button></div>
+        </form>
+
+        {% if user.role == 'administrator' %}
+        <hr />
+        <h4>Edit config.php</h4>
+        <form method="post" action="/scripts/admin_action.php">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+          <input type="hidden" name="action" value="edit_config" />
+          <div><textarea name="config_php" style="width:100%;height:240px"><?php
+return [
+    // paste your php config array here
+];
+?>
+</textarea></div>
+          <div style="margin-top:8px;"><button type="submit">Save config.php (backup will be created)</button></div>
+        </form>
+        {% endif %}
+
+        <hr />
+        <p><a href="/admin/logout">Logout</a></p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

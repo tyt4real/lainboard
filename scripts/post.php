@@ -12,6 +12,9 @@ $replyTo = filter_input(INPUT_POST, 'replyto', FILTER_SANITIZE_STRING);
         echo "Do not post empty posts, are you stupid?";
     } else {
         require_once 'utils.php';
+        // determine authenticated user id (if any) to persist user_id for authoritative capcodes
+        $authUser = current_admin_user();
+        $authId = isset($authUser['id']) ? intval($authUser['id']) : null;
         // Verify CSRF token
         $csrf = filter_input(INPUT_POST, 'csrf_token', FILTER_SANITIZE_STRING);
         if (!verifyCsrfToken($csrf)) {
@@ -29,9 +32,9 @@ $replyTo = filter_input(INPUT_POST, 'replyto', FILTER_SANITIZE_STRING);
         rateLimit();
         
         if (isset($config['pages'][$board])) {
-                $insertId = postToDB($name, $filters->applyFilters($comment), $_SERVER['REMOTE_ADDR'], 1, $board, 0);
-                if ($insertId !== false && $insertId > 0) {
-                    header("Location: /thread/" . intval($insertId));
+                $insertId = postToDB($name, $filters->applyFilters($comment), $_SERVER['REMOTE_ADDR'], 1, $board, 0, $authId);
+                    if ($insertId !== false && $insertId > 0) {
+                        header("Location: /" . rawurlencode($board) . "/thread/" . intval($insertId));
                     die();
                 } else {
                     echo "Could not post man sry";
