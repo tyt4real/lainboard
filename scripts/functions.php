@@ -60,7 +60,7 @@ function registerFunc()
 
         $pages = $config['pages'];
 
-        $manualLinks = [];
+        $manualLinks = [['href' => '/home', 'label' => 'Home', 'target' => '_blank'],['href' => '/overboard', 'label' => 'overboard', 'target' => '_blank'],];
 
         $dynamicLinks = [];
         foreach ($pages as $slug => $pageData) {
@@ -71,7 +71,7 @@ function registerFunc()
             ];
         }
 
-        $navbarLinks = array_merge($dynamicLinks, $manualLinks);
+        $navbarLinks = array_merge($manualLinks, $dynamicLinks);
         $html = '';
         $html .= '<div style="text-align: center">';
         $html .= '  <div id="navbar" class="content">';
@@ -80,10 +80,10 @@ function registerFunc()
 
         $lastIndex = count($navbarLinks) - 1;
         foreach ($navbarLinks as $index => $link) {
-            $html .= '<a href="' . htmlspecialchars($link['href']) . '" target="' . htmlspecialchars($link['target']) . '">'
-                . htmlspecialchars($link['label']) . '</a>';
+            $html .= '<a href="' . htmlspecialchars($link['href']) . '" target="' . htmlspecialchars($link['target']) . '">/'
+                . strtolower(htmlspecialchars($link['label'])) . '/</a>';
             if ($index !== $lastIndex) {
-                $html .= ' | ';
+                $html .= '   |   ';
             }
         }
 

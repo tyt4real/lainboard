@@ -10,7 +10,10 @@
 	{% if homepage.show_header is defined and homepage.show_header %}
 		{{ renderHeader() }}
 	{% endif %}
-	{# stuff to be added #}
+	{# In the future we'all add a proper banner system, for now let's just go with that. #}
+	<div id="banner-container">
+		<img src="images/banners/1.png" id="banner-temp">
+	</div>
 	{% if homepage.show_navbar is defined and homepage.show_navbar %}
 		{{ renderNavbar() }}
 	{% endif %}
@@ -26,6 +29,7 @@
                     <li>To create a new post, navigate to a board and fill out the post form.</li>
                     <li>To reply to an existing thread, click on the thread and use the reply form.</li>
                     <li>Remember to follow the board rules and guidelines.</li>
+					<li>Check the overboard out <a href="/overboard">here</a></li>
                 </ul>
             </div>
 		</div>

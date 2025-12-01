@@ -475,4 +475,5 @@ composer.lock
 config.php
 db/posts.db
 scripts/utilities/rate_limit_*.txt
+images/banners/*.png
 .vscode
