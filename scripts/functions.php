@@ -773,5 +773,20 @@ function registerFunc()
 
         return new \Twig\Markup($html, 'UTF-8');
     }));
+    $twig->addFunction(new \Twig\TwigFunction('renderRightSideTopBar', function() {
+        //check if the user is logged in, if so grab their username.
+        $sessionUsername = $_SESSION['admin_user']['username'] ?? null;
+        $html = '';
+        if($sessionUsername === null) {
+            //not authenticated, render the normal login link.
+            $html .= '[<a href="/admin/login">administrator login</a>]';
+        } else {
+            //authenticated, show them where the panel at :3
+            $html .= '[<a href="/admin/panel">logged in as ';
+            $html .= $sessionUsername;
+            $html .= '</a>]';
+        }
+        return new \Twig\Markup($html, 'UTF-8');
+    }));
     return $twig;
 }

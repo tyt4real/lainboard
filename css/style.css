@@ -188,6 +188,31 @@ a:hover {
   background: rgba(0,0,0,0.08);
 }
 
+/* incredibly redundant code lol */
+
+#left-topbar {
+  right: 0;
+  display: inline;
+}
+
+#right-topbar {
+  left: 0;
+  display: inline;
+}
+
+#top-bar {
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+#bottom-bar {
+  /* like copyright shit  */
+  bottom: 0;
+  display: flex;
+  text-align: center;
+}
 /* Responsive: move pagination into footer center on narrow screens */
 @media (max-width: 600px) {
   .theme-selector {

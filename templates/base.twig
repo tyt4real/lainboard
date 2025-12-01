@@ -12,7 +12,7 @@
 			<link rel="icon" type="image/x-icon" href="../images/favicon.ico"/>
 			<link href="/css/style.css" rel="stylesheet"/>
             <!-- <link href="../css/4chanstyles.css" rel="stylesheet"/> -->
-			<title>Textboard |
+			<title>lainboard |
 				{% block title %}{% endblock %}
 			</title>
 		{% endblock %}
@@ -20,6 +20,16 @@
 	<body>
 		 <script src="/js/styleinit.js"></script>
 		 <script src="/js/themeManager.js"></script>
+		 	<div id="top-bar">
+				<div id="left-topbar">
+					<!-- board list maybe some other links
+					stuff on the left -->
+				</div>
+				<div id="right-topbar">
+					<!-- Future JS Settings tab and login for admins/mods and maybe other interesting stuff -->
+					{{ renderRightSideTopBar() }}
+				</div>
+			</div>
 			<div id="content">{% block content %}{% endblock %} </div>
 			<img src="/images/laintransparent.png" class="bottom-right-image hide-on-mobile" id="lain">
 			<img src="/images/yotsuba.png" class="bottom-right-image hide-on-mobile" id="yotsuba">
@@ -36,6 +46,9 @@
 						<div class="pagination-wrapper">
 							{{ renderPagination() }}
 						</div>
+						<!-- <div id="bottom-bar">
+								Copyleft lain.rocks (c) 2069
+						</div> -->
 					</div>
 				{% endblock %}
 			</footer>
