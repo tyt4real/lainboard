@@ -1,5 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
+//captchas
+use Gregwar\Captcha\CaptchaBuilder;
 // Start session early so CSRF tokens and other session-driven features work
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -187,10 +189,17 @@ if ($threadPos !== false && isset($segments[$threadPos + 1])) {
     $pageType = 'thread';
     $threadId = (int)$segments[$threadPos + 1];
     $renderTemplate = 'thread.twig';
+
+    $builder = new CaptchaBuilder;
+    $builder->build();
+    $_SESSION['captcha_phrase'] = $builder->getPhrase();
+    $captchaData = $builder->inline();
+
     $renderVars = [
         'board'    => $board,
         'threadId' => $threadId,
         'pages'    => $config['pages'],
+        'captchaimage' => $captchaData,
     ];
 }
 
@@ -230,12 +239,19 @@ if ($renderTemplate === null) {
 
     $pageConfig = $config['pages'][$pageSlug];
     $renderTemplate = $pageConfig['template'];
+    //captcha
+    $builder = new CaptchaBuilder;
+    $builder->build();
+    $_SESSION['captcha_phrase'] = $builder->getPhrase();
+    $captchaData = $builder->inline();
+    
     $renderVars = [
         'current_page' => $pageSlug,
         'pages'        => $config['pages'],
         'boardname'    => $pageConfig['boardname'] ?? $pageSlug,
         'path'         => $segments,
         'param'        => $segments[1] ?? '',
+        'captchaimage' => $captchaData,
     ];
 }
 

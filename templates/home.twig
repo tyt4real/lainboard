@@ -11,9 +11,11 @@
 		{{ renderHeader() }}
 	{% endif %}
 	{# In the future we'all add a proper banner system, for now let's just go with that. #}
+	{% if homepage.show_banner is defined and homepage.show_banner %}
 	<div id="banner-container">
 		<img src="images/banners/1.png" id="banner-temp">
 	</div>
+	{% endif %}
 	{% if homepage.show_navbar is defined and homepage.show_navbar %}
 		{{ renderNavbar() }}
 	{% endif %}

@@ -18,6 +18,17 @@ if (!verifyCsrfToken($csrf)) {
     http_response_code(403);
     die("Invalid CSRF token");
 }
+
+$userCaptcha = filter_input(INPUT_POST, 'captcha', FILTER_SANITIZE_STRING);
+if (!isset($_SESSION['captcha_phrase']) || strtolower($userCaptcha) !== strtolower($_SESSION['captcha_phrase'])) {
+    http_response_code(400);
+    echo('captcha is'.$_SESSION['captcha_phrase']);
+    die("Captcha incorrect. Try again.");
+}
+
+// invalidate captcha after use
+unset($_SESSION['captcha_phrase']);
+
 //Get the OP's post from the board-specific table
 try {
     $db = new SQLite3($config['postdb']);

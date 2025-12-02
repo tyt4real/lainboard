@@ -29,8 +29,16 @@
 					<tr data-type="Comment">
 						<td>Comment</td>
 						<td>
-							    <textarea id="postText" name="com" cols="48" rows="4" wrap="soft" tabindex="2"></textarea>
-								    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+							<textarea id="postText" name="com" cols="48" rows="4" wrap="soft" tabindex="2"></textarea>
+							<input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+						</td>
+					</tr>
+					<tr data-type="Captcha">
+						<td>Captcha</td>
+						<td>
+							<img src="{{ captchaimage }}" alt="captcha">
+
+							<input type="text" name="captcha" placeholder="Enter captcha">
 						</td>
 					</tr>
 					<tr data-type="Submit">
@@ -58,61 +66,61 @@
 		</form>
 	</div>
 	{{ renderThread(threadId, board) }}
-	<script>
-	(function(){
-		function insertAtCursor(el, text) {
-			if (el.selectionStart || el.selectionStart === 0) {
-				var start = el.selectionStart;
-				var end = el.selectionEnd;
-				var value = el.value;
-				el.value = value.substring(0, start) + text + value.substring(end);
-				var pos = start + text.length;
-				el.selectionStart = el.selectionEnd = pos;
-			} else {
-				el.value += text;
-			}
-		}
-
-		document.addEventListener('click', function(e){
-			var target = e.target;
-			while (target && target !== document) {
-				if (target.classList && (target.classList.contains('quoteLink') || target.classList.contains('quotelink'))) {
-					e.preventDefault();
-					var pid = target.getAttribute('data-postid');
-					if (!pid) return;
-					var ta = document.getElementById('postText');
-					if (!ta) return;
-					var insert = '>>' + pid + '\n';
-					insertAtCursor(ta, insert);
-					ta.focus();
-					return;
+	 <script>
+		(function(){
+			function insertAtCursor(el, text) {
+				if (el.selectionStart || el.selectionStart === 0) {
+					var start = el.selectionStart;
+					var end = el.selectionEnd;
+					var value = el.value;
+					el.value = value.substring(0, start) + text + value.substring(end);
+					var pos = start + text.length;
+					el.selectionStart = el.selectionEnd = pos;
+				} else {
+					el.value += text;
 				}
-				target = target.parentNode;
 			}
-		}, false);
-
-		document.addEventListener('DOMContentLoaded', function(){
-			try {
-				var params = new URLSearchParams(window.location.search);
-				var q = params.get('quote');
-				if (q) {
-					var ta = document.getElementById('postText');
-					if (ta) {
-						var insert = '>>' + q + '\n';
-						if (ta.value.trim() === '') {
-							ta.value = insert;
-						} else {
-							ta.value = insert + ta.value;
-						}
+	
+			document.addEventListener('click', function(e){
+				var target = e.target;
+				while (target && target !== document) {
+					if (target.classList && (target.classList.contains('quoteLink') || target.classList.contains('quotelink'))) {
+						e.preventDefault();
+						var pid = target.getAttribute('data-postid');
+						if (!pid) return;
+						var ta = document.getElementById('postText');
+						if (!ta) return;
+						var insert = '>>' + pid + '\n';
+						insertAtCursor(ta, insert);
 						ta.focus();
-						ta.scrollIntoView({behavior: 'smooth', block: 'center'});
+						return;
 					}
+					target = target.parentNode;
 				}
-			} catch (err) {
-				// ignore in older browsers
-			}
-		});
-	})();
-	</script>
+			}, false);
+	
+			document.addEventListener('DOMContentLoaded', function(){
+				try {
+					var params = new URLSearchParams(window.location.search);
+					var q = params.get('quote');
+					if (q) {
+						var ta = document.getElementById('postText');
+						if (ta) {
+							var insert = '>>' + q + '\n';
+							if (ta.value.trim() === '') {
+								ta.value = insert;
+							} else {
+								ta.value = insert + ta.value;
+							}
+							ta.focus();
+							ta.scrollIntoView({behavior: 'smooth', block: 'center'});
+						}
+					}
+				} catch (err) {
+					// ignore in older browsers
+				}
+			});
+		})();
+		</script>
 
 {% endblock %}
