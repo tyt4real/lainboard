@@ -13,7 +13,8 @@ function registerFunc()
             $currentBoard = $defaultBoard;
         }
         $text = str_replace(["\r\n", "\r"], "\n", $text);
-        $escaped = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+        //$escaped = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+        $escaped = $text;
 
         $lines = explode("\n", $escaped);
         $outLines = [];
