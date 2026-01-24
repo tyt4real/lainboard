@@ -1,0 +1,38 @@
+# PHP
+composer.phar
+/vendor/
+*.log
+*.cache
+
+# Uploads
+src/uploads/*
+!src/uploads/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Replit
+.replit
+replit.nix
+.config/
+.cache/
+.local/
+
+# Sessions
+/tmp/
+./src/config.php
+
+tw.css
+
+node_modules/
