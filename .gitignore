@@ -31,7 +31,7 @@ replit.nix
 
 # Sessions
 /tmp/
-./src/config.php
+src/config.php
 
 tw.css
 

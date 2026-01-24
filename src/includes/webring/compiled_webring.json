@@ -1,0 +1,1382 @@
+[
+    {
+        "following": [
+            "https:\/\/smuglo.li\/webring.json"
+        ],
+        "known": [
+            "https:\/\/smuglo.li\/webring.json",
+            "https:\/\/arisuchan.xyz\/webring.json",
+            "https:\/\/erischan.org\/webring.json",
+            "https:\/\/zzzchan.xyz\/webring.json",
+            "https:\/\/trashchan.xyz\/webring.json",
+            "https:\/\/boards.lain.rocks\/webring.json",
+            "http:\/\/bhm5koavobq353j54qichcvzr6uhtri6x4bjjy4xkybgvxkzuslzcqid.onion\/webring.json",
+            "http:\/\/crghlabr45r5pqkgnbgehywk5nxutdks5iss7tabyux5psikqqjirryd.onion\/webring.json",
+            "https:\/\/nukechan.net\/webring.json",
+            "http:\/\/nuclearcdboxafziza4mgohcwhzfjiyg6zeslnry33pepsgtur2wyeyd.onion\/webring.json",
+            "http:\/\/trashchan2rvdng5zm7346sfxrrkjwvqzolw4lfdyldcsdpmsyj4dkid.onion\/webring.json",
+            "http:\/\/junkuchaouscdrmjvuat5ziio7et6sjm7nd5puzhdfq7all7qdiqppyd.onion\/webring.json",
+            "http:\/\/erischan2sqwddodpsehjymfn4ivcbj42rbmct4d5xwl4zlcsgzbdnqd.onion\/webring.json"
+        ],
+        "blacklist": [
+            "oceanchan.xyz",
+            "pastebin.com",
+            "vch.moe",
+            "8chan.moe",
+            "8chan.se",
+            "tchan.top"
+        ],
+        "boards": [
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 3579,
+                "uri": "art",
+                "title": "Drawing, Photography, Painting",
+                "subtitle": "Sculpting and Designing",
+                "path": "https:\/\/tvch.moe\/art",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-11-18T05:13:18+00:00"
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 973,
+                "uri": "bane",
+                "title": "Big Guys (4U)",
+                "subtitle": "Crashing this plane with no survivors",
+                "path": "https:\/\/tvch.moe\/bane",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-12-29T02:49:13+00:00"
+            },
+            {
+                "postsPerHour": 1,
+                "uniqueUsers": 4,
+                "totalPosts": 14457,
+                "uri": "ch3",
+                "title": "Video Games",
+                "subtitle": "Turn that knob to Channel 3!",
+                "path": "https:\/\/tvch.moe\/ch3",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T21:31:05+00:00"
+            },
+            {
+                "postsPerHour": 9,
+                "uniqueUsers": 18,
+                "totalPosts": 172219,
+                "uri": "dunk",
+                "title": "Off topic",
+                "subtitle": "Say hello to my shitpost blend",
+                "path": "https:\/\/tvch.moe\/dunk",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T22:04:02+00:00"
+            },
+            {
+                "postsPerHour": 2,
+                "uniqueUsers": 11,
+                "totalPosts": 166083,
+                "uri": "dup",
+                "title": "btfo",
+                "subtitle": "Political Shitposting",
+                "path": "https:\/\/tvch.moe\/dup",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T21:45:54+00:00"
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 1,
+                "totalPosts": 6213,
+                "uri": "lit",
+                "title": "Literature and Writing",
+                "subtitle": "Fiction and Non-fiction",
+                "path": "https:\/\/tvch.moe\/lit",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T16:00:09+00:00"
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 3436,
+                "uri": "ost",
+                "title": "Music, Composing",
+                "subtitle": "and Audio design",
+                "path": "https:\/\/tvch.moe\/ost",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-12-27T04:53:26+00:00"
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 1437,
+                "uri": "oven",
+                "title": "Cooking and Baking",
+                "subtitle": "Kitchen's Open!",
+                "path": "https:\/\/tvch.moe\/oven",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-12-22T04:06:06+00:00"
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 1623,
+                "uri": "top",
+                "title": "Board and Card games",
+                "subtitle": "And Dice games, and TRPGS, and anything related",
+                "path": "https:\/\/tvch.moe\/top",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-11-22T11:20:10+00:00"
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 5201,
+                "uri": "truth",
+                "title": "Paranomal",
+                "subtitle": "Seek the Truth",
+                "path": "https:\/\/tvch.moe\/truth",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-12-13T07:53:27+00:00"
+            },
+            {
+                "postsPerHour": 2,
+                "uniqueUsers": 14,
+                "totalPosts": 367856,
+                "uri": "tv",
+                "title": "Movies and Television",
+                "subtitle": "no girls allowed",
+                "path": "https:\/\/tvch.moe\/tv",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T21:32:42+00:00"
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 1502,
+                "uri": "wooo",
+                "title": "Pro Wrestling",
+                "subtitle": "and combat sports",
+                "path": "https:\/\/tvch.moe\/wooo",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-11-18T05:13:52+00:00"
+            }
+        ],
+        "logo": [
+            "https:\/\/tvch.moe\/static\/favicon.ico"
+        ],
+        "name": "tvch",
+        "url": "https:\/\/tvch.moe",
+        "endpoint": "https:\/\/tvch.moe\/webring.json"
+    },
+    {
+        "name": "Trashchan",
+        "url": "https:\/\/trashchan.xyz\/index.html",
+        "endpoint": "https:\/\/trashchan.xyz\/webring.json",
+        "logo": [
+            "https:\/\/trashchan.xyz\/favicon.ico"
+        ],
+        "following": [
+            "https:\/\/smuglo.li\/webring.json",
+            "https:\/\/zzzchan.xyz\/webring.json",
+            "https:\/\/arisuchan.xyz\/webring.json"
+        ],
+        "blacklist": [
+            "https:\/\/indiachan.net\/webring.json"
+        ],
+        "known": [
+            "https:\/\/smuglo.li\/webring.json",
+            "https:\/\/zzzchan.xyz\/webring.json",
+            "https:\/\/arisuchan.xyz\/webring.json",
+            "https:\/\/erischan.org\/webring.json",
+            "https:\/\/tvch.moe\/webring.json",
+            "http:\/\/bhm5koavobq353j54qichcvzr6uhtri6x4bjjy4xkybgvxkzuslzcqid.onion\/webring.json",
+            "http:\/\/trashchan2rvdng5zm7346sfxrrkjwvqzolw4lfdyldcsdpmsyj4dkid.onion\/webring.json",
+            "http:\/\/junkuchaouscdrmjvuat5ziio7et6sjm7nd5puzhdfq7all7qdiqppyd.onion\/webring.json",
+            "https:\/\/nukechan.net\/webring.json",
+            "https:\/\/boards.lain.rocks\/webring.json",
+            "http:\/\/crghlabr45r5pqkgnbgehywk5nxutdks5iss7tabyux5psikqqjirryd.onion\/webring.json",
+            "http:\/\/nuclearcdboxafziza4mgohcwhzfjiyg6zeslnry33pepsgtur2wyeyd.onion\/webring.json",
+            "http:\/\/erischan2sqwddodpsehjymfn4ivcbj42rbmct4d5xwl4zlcsgzbdnqd.onion\/webring.json"
+        ],
+        "boards": [
+            {
+                "uri": "nep",
+                "title": "Hyperdimension Neptunia",
+                "subtitle": "Now with 200% more Nepping",
+                "path": "https:\/\/trashchan.xyz\/nep\/",
+                "postsPerHour": 1,
+                "postsPerDay": 2,
+                "totalPosts": 8960,
+                "uniqueUsers": 2,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2026-01-01T01:12:32.644Z"
+            },
+            {
+                "uri": "quests",
+                "title": "Quests",
+                "subtitle": "Quests & Forum Games",
+                "path": "https:\/\/trashchan.xyz\/quests\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1525,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "quests",
+                    "quest"
+                ],
+                "lastPostTimestamp": "2025-08-09T19:47:36.107Z"
+            },
+            {
+                "uri": "robowaifu",
+                "title": "DIY Robot Wives",
+                "subtitle": "Advancing robotics to a point where anime catgrill meidos in tiny miniskirts are a reality!",
+                "path": "https:\/\/trashchan.xyz\/robowaifu\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1357,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-20T16:49:30.211Z"
+            },
+            {
+                "uri": "finance",
+                "title": "Finance",
+                "subtitle": "Nobody on here is a financial advisor",
+                "path": "https:\/\/trashchan.xyz\/finance\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 455,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [
+                    "Finance",
+                    "Economy",
+                    "Stocks",
+                    "Riches and gold",
+                    "Stocks",
+                    "Business"
+                ],
+                "lastPostTimestamp": "2025-12-28T03:45:48.947Z"
+            },
+            {
+                "uri": "digi",
+                "title": "Merry Lounge \ud83c\udf85",
+                "subtitle": "Gatekept Single-thread (mostly) Random Board",
+                "path": "https:\/\/trashchan.xyz\/digi\/",
+                "postsPerHour": 6,
+                "postsPerDay": 19,
+                "totalPosts": 37348,
+                "uniqueUsers": 11,
+                "nsfw": true,
+                "tags": [
+                    "digi charat",
+                    "random",
+                    "anime",
+                    "manga",
+                    "video games",
+                    "technology",
+                    "retro",
+                    "japan",
+                    "eastern",
+                    "western"
+                ],
+                "lastPostTimestamp": "2026-01-01T21:56:26.361Z"
+            },
+            {
+                "uri": "comfy",
+                "title": "A place to relax",
+                "subtitle": "Pleasant things",
+                "path": "https:\/\/trashchan.xyz\/comfy\/",
+                "postsPerHour": 2,
+                "postsPerDay": 3,
+                "totalPosts": 16435,
+                "uniqueUsers": 3,
+                "nsfw": false,
+                "tags": [],
+                "lastPostTimestamp": "2026-01-01T21:56:49.745Z"
+            },
+            {
+                "uri": "retro",
+                "title": "Y2K",
+                "subtitle": "1990s and 2000s Nostalgia",
+                "path": "https:\/\/trashchan.xyz\/retro\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 5172,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [
+                    "retro",
+                    "y2k",
+                    "1990",
+                    "2000",
+                    "nostalgia"
+                ],
+                "lastPostTimestamp": "2025-12-27T04:08:34.900Z"
+            },
+            {
+                "uri": "ent",
+                "title": "L\u2019Entremonde",
+                "subtitle": "\u2c60'\u0246\u20a6\u20ae\u2c64\u0246\u20a5\u00d8\u20a6\u0110\u0246",
+                "path": "https:\/\/trashchan.xyz\/ent\/",
+                "postsPerHour": 0,
+                "postsPerDay": 7,
+                "totalPosts": 2533,
+                "uniqueUsers": 4,
+                "nsfw": true,
+                "tags": [
+                    "francophonie",
+                    "al\u00e9atoire"
+                ],
+                "lastPostTimestamp": "2026-01-01T22:23:32.886Z"
+            },
+            {
+                "uri": "christmas",
+                "title": "All Are Welcome!",
+                "subtitle": "Anon's heart grew three sizes that day...",
+                "path": "https:\/\/trashchan.xyz\/christmas\/",
+                "postsPerHour": 0,
+                "postsPerDay": 5,
+                "totalPosts": 4075,
+                "uniqueUsers": 5,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2026-01-01T18:27:44.218Z"
+            },
+            {
+                "uri": "server",
+                "title": "188",
+                "subtitle": "Thread Specific Utility Board",
+                "path": "https:\/\/trashchan.xyz\/server\/",
+                "postsPerHour": 0,
+                "postsPerDay": 2,
+                "totalPosts": 2044,
+                "uniqueUsers": 2,
+                "nsfw": false,
+                "tags": [],
+                "lastPostTimestamp": "2026-01-01T01:07:26.544Z"
+            },
+            {
+                "uri": "agdg",
+                "title": "Amateur Game Development General",
+                "subtitle": "just like make game",
+                "path": "https:\/\/trashchan.xyz\/agdg\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 2497,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [
+                    "video games",
+                    "programming",
+                    "composing",
+                    "self-improvement"
+                ],
+                "lastPostTimestamp": "2025-12-31T19:45:44.478Z"
+            },
+            {
+                "uri": "film",
+                "title": "FILM",
+                "subtitle": "FILM v 5.0",
+                "path": "https:\/\/trashchan.xyz\/film\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 3746,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-27T20:39:50.800Z"
+            },
+            {
+                "uri": "icup",
+                "title": "Inter-Board Competitions",
+                "subtitle": "Now on Trashchan",
+                "path": "https:\/\/trashchan.xyz\/icup\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 5109,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [
+                    "pes",
+                    "soccer",
+                    "simulation",
+                    "tournament",
+                    "divegrass"
+                ],
+                "lastPostTimestamp": "2024-02-12T14:53:10.000Z"
+            },
+            {
+                "uri": "loomis",
+                "title": "loomis",
+                "subtitle": "Fun With A Pencil (or tablet)",
+                "path": "https:\/\/trashchan.xyz\/loomis\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 2201,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "art, artist, drawing, painting, modeling, sketching, reference"
+                ],
+                "lastPostTimestamp": "2025-12-27T15:35:56.411Z"
+            },
+            {
+                "uri": "l",
+                "title": "Virtual Livers\/Virtual Youtubers",
+                "subtitle": "Fun things are fun. Take care of your Oshi.",
+                "path": "https:\/\/trashchan.xyz\/l\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 2362,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "virtual youtubers",
+                    "virtual livers",
+                    "streaming",
+                    "otaku",
+                    "idols"
+                ],
+                "lastPostTimestamp": "2025-12-27T06:19:05.485Z"
+            },
+            {
+                "uri": "britfeel",
+                "title": "Feel Britannia",
+                "subtitle": "General discussion for British lads who feel",
+                "path": "https:\/\/trashchan.xyz\/britfeel\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 6767,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "britain",
+                    "british",
+                    "general",
+                    "feels",
+                    "neet",
+                    "england",
+                    "scotland",
+                    "wales"
+                ],
+                "lastPostTimestamp": "2025-08-16T02:37:52.265Z"
+            },
+            {
+                "uri": "lego",
+                "title": "Lego Central",
+                "subtitle": "Just Imagine...",
+                "path": "https:\/\/trashchan.xyz\/lego\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1501,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-30T17:29:20.035Z"
+            },
+            {
+                "uri": "p",
+                "title": "Photography",
+                "subtitle": "Resources & discussion regarding the heliographic practice",
+                "path": "https:\/\/trashchan.xyz\/p\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 2067,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-26T15:53:15.392Z"
+            },
+            {
+                "uri": "f",
+                "title": "Flash",
+                "subtitle": "come home wandering friends",
+                "path": "https:\/\/trashchan.xyz\/f\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 2604,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-27T15:39:41.635Z"
+            },
+            {
+                "uri": "late",
+                "title": "Late Nights",
+                "subtitle": "Long nights, sleepy days",
+                "path": "https:\/\/trashchan.xyz\/late\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 3773,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "night nocturnal insomnia"
+                ],
+                "lastPostTimestamp": "2025-12-31T11:42:04.630Z"
+            }
+        ]
+    },
+    {
+        "following": [
+            "https:\/\/arisuchan.xyz\/webring.json",
+            "https:\/\/erischan.org\/webring.json",
+            "https:\/\/tvch.moe\/webring.json",
+            "https:\/\/zzzchan.xyz\/webring.json",
+            "https:\/\/trashchan.xyz\/webring.json"
+        ],
+        "known": [
+            "https:\/\/arisuchan.xyz\/webring.json",
+            "https:\/\/erischan.org\/webring.json",
+            "https:\/\/tvch.moe\/webring.json",
+            "https:\/\/zzzchan.xyz\/webring.json",
+            "https:\/\/trashchan.xyz\/webring.json",
+            "https:\/\/boards.lain.rocks\/webring.json",
+            "http:\/\/bhm5koavobq353j54qichcvzr6uhtri6x4bjjy4xkybgvxkzuslzcqid.onion\/webring.json",
+            "http:\/\/crghlabr45r5pqkgnbgehywk5nxutdks5iss7tabyux5psikqqjirryd.onion\/webring.json",
+            "https:\/\/nukechan.net\/webring.json",
+            "http:\/\/nuclearcdboxafziza4mgohcwhzfjiyg6zeslnry33pepsgtur2wyeyd.onion\/webring.json",
+            "http:\/\/junkuchaouscdrmjvuat5ziio7et6sjm7nd5puzhdfq7all7qdiqppyd.onion\/webring.json",
+            "http:\/\/erischan2sqwddodpsehjymfn4ivcbj42rbmct4d5xwl4zlcsgzbdnqd.onion\/webring.json"
+        ],
+        "blacklist": [
+            "oceanchan.xyz",
+            "clab.li",
+            "8chan.moe",
+            "julay.world"
+        ],
+        "boards": [
+            {
+                "postsPerHour": 2,
+                "uniqueUsers": 30,
+                "totalPosts": 848647,
+                "uri": "a",
+                "title": "Anime & Manga",
+                "subtitle": "Stay away from 3DPD",
+                "path": "https:\/\/smuglo.li\/a",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T21:26:04+00:00",
+                "tags": [
+                    "anime",
+                    "manga"
+                ]
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 2819,
+                "uri": "tech",
+                "title": "Techloligy",
+                "subtitle": "Hail the Omnissiah!",
+                "path": "https:\/\/smuglo.li\/tech",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-12-28T00:39:12+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 12,
+                "totalPosts": 82061,
+                "uri": "tg",
+                "title": "Traditional Games",
+                "subtitle": "Roll to see if you cry and if so how hard",
+                "path": "https:\/\/smuglo.li\/tg",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T20:44:23+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 1,
+                "uniqueUsers": 6,
+                "totalPosts": 38639,
+                "uri": "yuri",
+                "title": "Yuri",
+                "subtitle": "Because girls CAN love girls",
+                "path": "https:\/\/smuglo.li\/yuri",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T21:32:04+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 1,
+                "totalPosts": 5637,
+                "uri": "fanfic",
+                "title": "Fanfic",
+                "subtitle": "WHAT THE HELL ARE YOU DOING YOU MOTHERFUCKERS",
+                "path": "https:\/\/smuglo.li\/fanfic",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T18:25:25+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 3,
+                "totalPosts": 12473,
+                "uri": "vg",
+                "title": "Video Games",
+                "subtitle": "Fun things are fun!",
+                "path": "https:\/\/smuglo.li\/vg",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T18:06:19+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 1,
+                "uniqueUsers": 30,
+                "totalPosts": 215334,
+                "uri": "monster",
+                "title": "Monster Girls",
+                "subtitle": "The Outer Haven Of Romance",
+                "path": "https:\/\/smuglo.li\/monster",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T21:57:52+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 27120,
+                "uri": "wooo",
+                "title": "King of Shitposting",
+                "subtitle": "Wrasslin'",
+                "path": "https:\/\/smuglo.li\/wooo",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-12-28T05:02:05+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 1350,
+                "uri": "ebola",
+                "title": "Ebola",
+                "subtitle": "The Cutest",
+                "path": "https:\/\/smuglo.li\/ebola",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-10-05T22:14:26+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 2494,
+                "uri": "cute",
+                "title": "Cute\/2D",
+                "subtitle": "Now with 200% extra cute!",
+                "path": "https:\/\/smuglo.li\/cute",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-11-04T17:16:57+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 1783,
+                "uri": "rec",
+                "title": "Recommendations",
+                "subtitle": "Recommendations, source, and other requests",
+                "path": "https:\/\/smuglo.li\/rec",
+                "nsfw": true,
+                "lastPostTimestamp": "2025-12-28T23:25:02+00:00",
+                "tags": []
+            },
+            {
+                "postsPerHour": 50,
+                "uniqueUsers": 122,
+                "totalPosts": 524678,
+                "uri": "kohi",
+                "title": "Kohi",
+                "subtitle": "\u3044\u3089\u3063\u3057\u3083\u3044\u307e\u305b\uff01",
+                "path": "https:\/\/smuglo.li\/kohi",
+                "nsfw": true,
+                "lastPostTimestamp": "2026-01-01T22:13:23+00:00",
+                "tags": []
+            }
+        ],
+        "name": "Smug",
+        "url": "https:\/\/smuglo.li",
+        "endpoint": "https:\/\/smuglo.li\/webring.json",
+        "logo": [
+            "https:\/\/smuglo.li\/static\/smugs\/1568379730768-0.jpg",
+            "https:\/\/smuglo.li\/static\/smugs\/1568379730768-3.jpg",
+            "https:\/\/smuglo.li\/static\/smugs\/1568380090207-0.jpg",
+            "https:\/\/smuglo.li\/static\/smugs\/1568380090208-1.jpg",
+            "https:\/\/smuglo.li\/static\/smugs\/1568380090208-2.png",
+            "https:\/\/smuglo.li\/static\/smugs\/1568380090208-4.png",
+            "https:\/\/smuglo.li\/static\/smugs\/1568380315022-0.jpg",
+            "https:\/\/smuglo.li\/static\/smugs\/1568380315022-1.png",
+            "https:\/\/smuglo.li\/static\/smugs\/1568380315022-2.jpg",
+            "https:\/\/smuglo.li\/static\/smugs\/1568380315023-3.jpg",
+            "https:\/\/smuglo.li\/static\/smugs\/1568380315023-4.png"
+        ]
+    },
+    {
+        "name": "zzzchan",
+        "url": "https:\/\/zzzchan.xyz",
+        "endpoint": "https:\/\/zzzchan.xyz\/webring.json",
+        "logo": [
+            "https:\/\/zzzchan.xyz\/favicon.ico"
+        ],
+        "following": [
+            "https:\/\/smuglo.li\/webring.json",
+            "http:\/\/bhm5koavobq353j54qichcvzr6uhtri6x4bjjy4xkybgvxkzuslzcqid.onion\/webring.json",
+            "https:\/\/trashchan.xyz\/webring.json",
+            "https:\/\/tvch.moe\/webring.json",
+            "http:\/\/trashchan2rvdng5zm7346sfxrrkjwvqzolw4lfdyldcsdpmsyj4dkid.onion\/webring.json",
+            "http:\/\/junkuchaouscdrmjvuat5ziio7et6sjm7nd5puzhdfq7all7qdiqppyd.onion\/webring.json",
+            "https:\/\/arisuchan.xyz\/webring.json"
+        ],
+        "blacklist": [
+            "8chan.moe",
+            "indiachan.net",
+            "fatchan.org"
+        ],
+        "known": [
+            "https:\/\/smuglo.li\/webring.json",
+            "http:\/\/bhm5koavobq353j54qichcvzr6uhtri6x4bjjy4xkybgvxkzuslzcqid.onion\/webring.json",
+            "https:\/\/trashchan.xyz\/webring.json",
+            "https:\/\/tvch.moe\/webring.json",
+            "http:\/\/trashchan2rvdng5zm7346sfxrrkjwvqzolw4lfdyldcsdpmsyj4dkid.onion\/webring.json",
+            "http:\/\/junkuchaouscdrmjvuat5ziio7et6sjm7nd5puzhdfq7all7qdiqppyd.onion\/webring.json",
+            "https:\/\/arisuchan.xyz\/webring.json",
+            "https:\/\/erischan.org\/webring.json",
+            "https:\/\/nukechan.net\/webring.json",
+            "https:\/\/boards.lain.rocks\/webring.json",
+            "http:\/\/crghlabr45r5pqkgnbgehywk5nxutdks5iss7tabyux5psikqqjirryd.onion\/webring.json",
+            "http:\/\/nuclearcdboxafziza4mgohcwhzfjiyg6zeslnry33pepsgtur2wyeyd.onion\/webring.json",
+            "http:\/\/erischan2sqwddodpsehjymfn4ivcbj42rbmct4d5xwl4zlcsgzbdnqd.onion\/webring.json"
+        ],
+        "boards": [
+            {
+                "uri": "v",
+                "title": "Video Games",
+                "subtitle": "it's fucking video games, baby",
+                "path": "https:\/\/zzzchan.xyz\/v\/",
+                "postsPerHour": 10,
+                "postsPerDay": 102,
+                "totalPosts": 299207,
+                "uniqueUsers": 56,
+                "nsfw": true,
+                "tags": [
+                    "Video Games",
+                    "Vidya"
+                ],
+                "lastPostTimestamp": "2026-01-01T22:17:41.445Z"
+            },
+            {
+                "uri": "meta",
+                "title": "Meta",
+                "subtitle": "Meta Discussion and Admin Announcements",
+                "path": "https:\/\/zzzchan.xyz\/meta\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 5377,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "meta",
+                    "admin"
+                ],
+                "lastPostTimestamp": "2025-11-18T17:59:49.029Z"
+            },
+            {
+                "uri": "r9k",
+                "title": "robot9000",
+                "subtitle": "NORMALNIGGERS OUT",
+                "path": "https:\/\/zzzchan.xyz\/r9k\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 4964,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-31T17:37:46.217Z"
+            },
+            {
+                "uri": "fa",
+                "title": "Fashion",
+                "subtitle": "Dress to Impress",
+                "path": "https:\/\/zzzchan.xyz\/fa\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 536,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [
+                    "fa",
+                    "fashion"
+                ],
+                "lastPostTimestamp": "2025-12-27T15:39:00.854Z"
+            },
+            {
+                "uri": "b",
+                "title": "Random",
+                "subtitle": "only the dead can know peace from this FUN",
+                "path": "https:\/\/zzzchan.xyz\/b\/",
+                "postsPerHour": 11,
+                "postsPerDay": 157,
+                "totalPosts": 302649,
+                "uniqueUsers": 43,
+                "nsfw": true,
+                "tags": [
+                    "random",
+                    "shitposting",
+                    "funposting",
+                    "off topic",
+                    "bees"
+                ],
+                "lastPostTimestamp": "2026-01-01T22:00:05.484Z"
+            },
+            {
+                "uri": "x",
+                "title": "Paranormal",
+                "subtitle": "973-eht-namuh-973",
+                "path": "https:\/\/zzzchan.xyz\/x\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 2466,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-12T05:49:51.104Z"
+            },
+            {
+                "uri": "fit",
+                "title": "Health and Fitness",
+                "subtitle": "Health, fitness, nutrition, and GAINZ",
+                "path": "https:\/\/zzzchan.xyz\/fit\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 2225,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [
+                    "fitness",
+                    "gains",
+                    "health",
+                    "strength",
+                    "nutrition",
+                    "fit",
+                    "diet",
+                    "weight",
+                    "gainz"
+                ],
+                "lastPostTimestamp": "2025-12-08T16:53:43.270Z"
+            },
+            {
+                "uri": "japan",
+                "title": "militarized easiness",
+                "subtitle": "for those we cherish, we die in glory",
+                "path": "https:\/\/zzzchan.xyz\/japan\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 13142,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "touhou",
+                    "shitposting",
+                    "sports",
+                    "japan",
+                    "japanese culture",
+                    "easy culture"
+                ],
+                "lastPostTimestamp": "2025-12-31T19:49:53.209Z"
+            },
+            {
+                "uri": "tech",
+                "title": "Technology",
+                "subtitle": "Technology & Computing",
+                "path": "https:\/\/zzzchan.xyz\/tech\/",
+                "postsPerHour": 0,
+                "postsPerDay": 9,
+                "totalPosts": 17631,
+                "uniqueUsers": 6,
+                "nsfw": false,
+                "tags": [
+                    "Technology ",
+                    "Tech ",
+                    "Computing",
+                    "Computers",
+                    "Programming ",
+                    "Software"
+                ],
+                "lastPostTimestamp": "2026-01-01T15:53:24.332Z"
+            },
+            {
+                "uri": "2hu",
+                "title": "Touhou",
+                "subtitle": "Primary and Secondary discussion, no Tertiaries allowed",
+                "path": "https:\/\/zzzchan.xyz\/2hu\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 5683,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "touhou",
+                    "zun",
+                    "\u2468"
+                ],
+                "lastPostTimestamp": "2025-12-31T13:23:45.248Z"
+            },
+            {
+                "uri": "k",
+                "title": "Weapons and Militaria",
+                "subtitle": "A magical place!",
+                "path": "https:\/\/zzzchan.xyz\/k\/",
+                "postsPerHour": 0,
+                "postsPerDay": 1,
+                "totalPosts": 13278,
+                "uniqueUsers": 1,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2026-01-01T14:04:18.351Z"
+            },
+            {
+                "uri": "vhs",
+                "title": "Movies",
+                "subtitle": "Film and Cinema",
+                "path": "https:\/\/zzzchan.xyz\/vhs\/",
+                "postsPerHour": 0,
+                "postsPerDay": 3,
+                "totalPosts": 4165,
+                "uniqueUsers": 3,
+                "nsfw": false,
+                "tags": [],
+                "lastPostTimestamp": "2026-01-01T05:06:35.547Z"
+            },
+            {
+                "uri": "hikki",
+                "title": "Hikikomori",
+                "subtitle": "The modern hermit",
+                "path": "https:\/\/zzzchan.xyz\/hikki\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1090,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "hikki"
+                ],
+                "lastPostTimestamp": "2025-12-28T16:39:02.595Z"
+            },
+            {
+                "uri": "bmn",
+                "title": "Bad Movie Night",
+                "subtitle": "The Webring's Satellite of Love | Movies Every Saturday",
+                "path": "https:\/\/zzzchan.xyz\/bmn\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 751,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-29T03:29:16.057Z"
+            },
+            {
+                "uri": "pol",
+                "title": "Politically Incorrect",
+                "subtitle": "with a mortar launcher",
+                "path": "https:\/\/zzzchan.xyz\/pol\/",
+                "postsPerHour": 0,
+                "postsPerDay": 1,
+                "totalPosts": 4529,
+                "uniqueUsers": 1,
+                "nsfw": true,
+                "tags": [
+                    "politics",
+                    "happenings",
+                    "infowars",
+                    "touhou"
+                ],
+                "lastPostTimestamp": "2026-01-01T00:35:30.348Z"
+            },
+            {
+                "uri": "fascist",
+                "title": "Surf The Kali Yuga",
+                "subtitle": "National Socialist and Third Position Discussion",
+                "path": "https:\/\/zzzchan.xyz\/fascist\/",
+                "postsPerHour": 0,
+                "postsPerDay": 12,
+                "totalPosts": 11998,
+                "uniqueUsers": 4,
+                "nsfw": true,
+                "tags": [
+                    "National Socialism, Fascism"
+                ],
+                "lastPostTimestamp": "2026-01-01T22:08:51.087Z"
+            },
+            {
+                "uri": "rozen",
+                "title": "Rozen Maiden",
+                "subtitle": "A shrine for dolls",
+                "path": "https:\/\/zzzchan.xyz\/rozen\/",
+                "postsPerHour": 0,
+                "postsPerDay": 3,
+                "totalPosts": 4492,
+                "uniqueUsers": 3,
+                "nsfw": false,
+                "tags": [],
+                "lastPostTimestamp": "2026-01-01T16:12:58.628Z"
+            },
+            {
+                "uri": "liberty",
+                "title": "Austro-Libertarianism",
+                "subtitle": "Politics & Economics",
+                "path": "https:\/\/zzzchan.xyz\/liberty\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1553,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "liberty",
+                    "economics",
+                    "pol",
+                    "fascist",
+                    "anarchist",
+                    "mises",
+                    "rothbard",
+                    "hoppe",
+                    "bastiat",
+                    "pinochet"
+                ],
+                "lastPostTimestamp": "2025-12-24T19:20:21.169Z"
+            },
+            {
+                "uri": "christian",
+                "title": "christian",
+                "subtitle": "Discussion of Christianity, the Church, and theology",
+                "path": "https:\/\/zzzchan.xyz\/christian\/",
+                "postsPerHour": 0,
+                "postsPerDay": 3,
+                "totalPosts": 28038,
+                "uniqueUsers": 3,
+                "nsfw": false,
+                "tags": [
+                    "christianity",
+                    "jesus",
+                    "catholicism",
+                    "protestantism",
+                    "theology"
+                ],
+                "lastPostTimestamp": "2026-01-01T18:47:03.683Z"
+            },
+            {
+                "uri": "a",
+                "title": "Anime",
+                "subtitle": "Anime&Manga",
+                "path": "https:\/\/zzzchan.xyz\/a\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1310,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-24T16:21:10.355Z"
+            }
+        ]
+    },
+    {
+        "name": "Erischan",
+        "url": "https:\/\/erischan.org",
+        "endpoint": "https:\/\/erischan.org\/webring.json",
+        "logo": [
+            "https:\/\/erischan.org\/favicon.ico"
+        ],
+        "following": [
+            "https:\/\/smuglo.li\/webring.json",
+            "http:\/\/bhm5koavobq353j54qichcvzr6uhtri6x4bjjy4xkybgvxkzuslzcqid.onion\/webring.json",
+            "https:\/\/trashchan.xyz\/webring.json",
+            "https:\/\/tvch.moe\/webring.json",
+            "https:\/\/zzzchan.xyz\/webring.json",
+            "http:\/\/crghlabr45r5pqkgnbgehywk5nxutdks5iss7tabyux5psikqqjirryd.onion\/webring.json",
+            "https:\/\/nukechan.net\/webring.json",
+            "http:\/\/nuclearcdboxafziza4mgohcwhzfjiyg6zeslnry33pepsgtur2wyeyd.onion\/webring.json"
+        ],
+        "blacklist": [],
+        "known": [
+            "https:\/\/smuglo.li\/webring.json",
+            "http:\/\/bhm5koavobq353j54qichcvzr6uhtri6x4bjjy4xkybgvxkzuslzcqid.onion\/webring.json",
+            "https:\/\/trashchan.xyz\/webring.json",
+            "https:\/\/tvch.moe\/webring.json",
+            "https:\/\/zzzchan.xyz\/webring.json",
+            "http:\/\/crghlabr45r5pqkgnbgehywk5nxutdks5iss7tabyux5psikqqjirryd.onion\/webring.json",
+            "https:\/\/nukechan.net\/webring.json",
+            "http:\/\/nuclearcdboxafziza4mgohcwhzfjiyg6zeslnry33pepsgtur2wyeyd.onion\/webring.json",
+            "https:\/\/arisuchan.xyz\/webring.json",
+            "http:\/\/trashchan2rvdng5zm7346sfxrrkjwvqzolw4lfdyldcsdpmsyj4dkid.onion\/webring.json",
+            "http:\/\/junkuchaouscdrmjvuat5ziio7et6sjm7nd5puzhdfq7all7qdiqppyd.onion\/webring.json",
+            "http:\/\/erischan2sqwddodpsehjymfn4ivcbj42rbmct4d5xwl4zlcsgzbdnqd.onion\/webring.json",
+            "https:\/\/boards.lain.rocks\/webring.json"
+        ],
+        "boards": [
+            {
+                "uri": "3",
+                "title": "Kie\u0142basa",
+                "subtitle": "I don't speak Polish",
+                "path": "https:\/\/erischan.org\/3\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 710,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "polish"
+                ],
+                "lastPostTimestamp": "2025-12-29T07:20:24.732Z"
+            },
+            {
+                "uri": "5",
+                "title": "Chaos",
+                "subtitle": "I don't know man, I didn't do it.",
+                "path": "https:\/\/erischan.org\/5\/",
+                "postsPerHour": 3,
+                "postsPerDay": 9,
+                "totalPosts": 15881,
+                "uniqueUsers": 7,
+                "nsfw": true,
+                "tags": [
+                    "random",
+                    "discordianism"
+                ],
+                "lastPostTimestamp": "2026-01-01T21:49:00.831Z"
+            },
+            {
+                "uri": "abs",
+                "title": "Absurdism",
+                "subtitle": "You are Sisyphus, this board is your boulder.",
+                "path": "https:\/\/erischan.org\/abs\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1652,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "philosophy"
+                ],
+                "lastPostTimestamp": "2025-12-29T08:54:31.659Z"
+            },
+            {
+                "uri": "aes",
+                "title": "Aesthetics",
+                "subtitle": "I'm impressed!",
+                "path": "https:\/\/erischan.org\/aes\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1646,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "art"
+                ],
+                "lastPostTimestamp": "2025-12-31T05:35:26.844Z"
+            },
+            {
+                "uri": "cat",
+                "title": "Cats",
+                "subtitle": "Meow or Nya?",
+                "path": "https:\/\/erischan.org\/cat\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1657,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "animal",
+                    "cat"
+                ],
+                "lastPostTimestamp": "2026-01-01T22:12:44.972Z"
+            },
+            {
+                "uri": "eris",
+                "title": "Discordianism",
+                "subtitle": "Hail Eris! All hail Discordia!",
+                "path": "https:\/\/erischan.org\/eris\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 4316,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "fringe",
+                    "religion",
+                    "philosophy",
+                    "subculture",
+                    "culture",
+                    "goddess",
+                    "cartoon"
+                ],
+                "lastPostTimestamp": "2025-12-31T12:17:57.345Z"
+            },
+            {
+                "uri": "gov",
+                "title": "Governance",
+                "subtitle": "Glory be to the Eristocracy!",
+                "path": "https:\/\/erischan.org\/gov\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 2797,
+                "uniqueUsers": 0,
+                "nsfw": true,
+                "tags": [
+                    "philosophy"
+                ],
+                "lastPostTimestamp": "2025-11-11T02:09:53.669Z"
+            }
+        ]
+    },
+    {
+        "name": "Nukechan",
+        "url": "https:\/\/nukechan.net",
+        "endpoint": "https:\/\/nukechan.net\/webring.json",
+        "logo": [
+            "https:\/\/nukechan.net\/file\/master.png"
+        ],
+        "following": [
+            "http:\/\/junkuchaouscdrmjvuat5ziio7et6sjm7nd5puzhdfq7all7qdiqppyd.onion\/webring.json",
+            "http:\/\/erischan2sqwddodpsehjymfn4ivcbj42rbmct4d5xwl4zlcsgzbdnqd.onion\/webring.json"
+        ],
+        "blacklist": [],
+        "known": [
+            "http:\/\/junkuchaouscdrmjvuat5ziio7et6sjm7nd5puzhdfq7all7qdiqppyd.onion\/webring.json",
+            "http:\/\/erischan2sqwddodpsehjymfn4ivcbj42rbmct4d5xwl4zlcsgzbdnqd.onion\/webring.json",
+            "https:\/\/erischan.org\/webring.json",
+            "https:\/\/smuglo.li\/webring.json",
+            "https:\/\/trashchan.xyz\/webring.json",
+            "https:\/\/tvch.moe\/webring.json",
+            "https:\/\/zzzchan.xyz\/webring.json",
+            "http:\/\/bhm5koavobq353j54qichcvzr6uhtri6x4bjjy4xkybgvxkzuslzcqid.onion\/webring.json",
+            "http:\/\/crghlabr45r5pqkgnbgehywk5nxutdks5iss7tabyux5psikqqjirryd.onion\/webring.json",
+            "http:\/\/nuclearcdboxafziza4mgohcwhzfjiyg6zeslnry33pepsgtur2wyeyd.onion\/webring.json",
+            "https:\/\/arisuchan.xyz\/webring.json",
+            "http:\/\/trashchan2rvdng5zm7346sfxrrkjwvqzolw4lfdyldcsdpmsyj4dkid.onion\/webring.json",
+            "https:\/\/boards.lain.rocks\/webring.json"
+        ],
+        "boards": [
+            {
+                "uri": "social",
+                "title": "Socialism",
+                "subtitle": "INTERNET AGITATE MACHINE",
+                "path": "https:\/\/nukechan.net\/social\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 1335,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [],
+                "lastPostTimestamp": "2025-12-27T10:41:52.273Z"
+            },
+            {
+                "uri": "praxis",
+                "title": "Projects",
+                "subtitle": "Shitposters have hitherto",
+                "path": "https:\/\/nukechan.net\/praxis\/",
+                "postsPerHour": 0,
+                "postsPerDay": 0,
+                "totalPosts": 295,
+                "uniqueUsers": 0,
+                "nsfw": false,
+                "tags": [],
+                "lastPostTimestamp": "2025-10-27T10:42:37.569Z"
+            }
+        ]
+    },
+    {
+        "following": [
+            "https:\/\/smuglo.li\/webring.json"
+        ],
+        "known": [
+            "https:\/\/smuglo.li\/webring.json"
+        ],
+        "blacklist": [
+            "4chan.org"
+        ],
+        "boards": [
+            {
+                "uri": "b",
+                "title": "Random",
+                "subtitle": "Random - Party of the hard variety",
+                "path": "https:\/\/boards.lain.rocks\/b",
+                "nsfw": true,
+                "postsPerHour": 0,
+                "uniqueUsers": 1,
+                "totalPosts": 13,
+                "lastPostTimestamp": "2026-01-01T21:29:21+00:00",
+                "tags": []
+            },
+            {
+                "uri": "q",
+                "title": "lain.rocks meta",
+                "subtitle": "Site discussion and feedback",
+                "path": "https:\/\/boards.lain.rocks\/q",
+                "nsfw": false,
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 8,
+                "lastPostTimestamp": "2025-12-15T19:22:17+00:00",
+                "tags": []
+            },
+            {
+                "uri": "sec",
+                "title": "Security",
+                "subtitle": "Cybersecurity, physical security",
+                "path": "https:\/\/boards.lain.rocks\/sec",
+                "nsfw": false,
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 0,
+                "lastPostTimestamp": null,
+                "tags": []
+            },
+            {
+                "uri": "tech",
+                "title": "Technology",
+                "subtitle": "Well, anything technology related",
+                "path": "https:\/\/boards.lain.rocks\/tech",
+                "nsfw": false,
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 1,
+                "lastPostTimestamp": "2025-12-22T18:39:55+00:00",
+                "tags": []
+            },
+            {
+                "uri": "test",
+                "title": "Testing",
+                "subtitle": "Don't mind me",
+                "path": "https:\/\/boards.lain.rocks\/test",
+                "nsfw": true,
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 6,
+                "lastPostTimestamp": "2025-12-31T05:26:44+00:00",
+                "tags": []
+            },
+            {
+                "uri": "wsg",
+                "title": "Worksafe GIF",
+                "subtitle": "Worksafe GIFs, webms and images.",
+                "path": "https:\/\/boards.lain.rocks\/wsg",
+                "nsfw": false,
+                "postsPerHour": 0,
+                "uniqueUsers": 0,
+                "totalPosts": 13,
+                "lastPostTimestamp": "2025-12-27T01:33:44+00:00",
+                "tags": []
+            }
+        ],
+        "logo": [
+            "https:\/\/boards.lain.rocks\/static\/favicon.ico"
+        ],
+        "flags": [],
+        "name": "Lainboard",
+        "url": "https:\/\/boards.lain.rocks",
+        "endpoint": "https:\/\/boards.lain.rocks\/webring.json"
+    }
+]
