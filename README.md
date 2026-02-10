@@ -42,7 +42,11 @@ Check out a working example at https://boards.lain.rocks/
     *   Rename `src/config.example.php` to `src/config.php`.
     *   Edit `src/config.php` to set up database connections, site settings, and other stuff.
 
-6.  **Access your board:**
+6.  **Configure `database.php`:**
+    *   Rename `src/includes/datbase.example.php` to `src/includes/database.php`.
+    *   Edit `src/includes/database.php`to ACTUALLY set up the database connection.
+
+7.  **Access your board:**
     *   Open your web browser and navigate to your server's address.
     *   Make your first post to automatically initialize the database. Add an administrator with the included script.
  
