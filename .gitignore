@@ -36,4 +36,7 @@ src/config.php
 tw.css
 
 node_modules/
+#the fucking database file.
+src/includes/database.php
+src/includes/database.php
 src/includes/database.php
