@@ -309,6 +309,9 @@ function renderSettingsModal()
             <?php endif; ?>
 
             <span class="post-date"><?= date('m/d/y(D)H:i:s', strtotime($post['created_at'])) ?></span>
+            <span class="post-number">
+                No.<a class="post-number" href="/<?= $boardUri ?>/thread/<?= $isOP ? $post['id'] : $post['thread_id'] ?>#p<?= $post['id'] ?>"><?= $post['id'] ?></a>
+            </span>
             <?php
             $backlinks = getBacklinksForPost($post['id'], $post['board_id']);
             if (!empty($backlinks)) {
@@ -317,9 +320,6 @@ function renderSettingsModal()
                 }
             }
             ?>
-            <span class="post-number">
-                No.<a class="post-number" href="/<?= $boardUri ?>/thread/<?= $isOP ? $post['id'] : $post['thread_id'] ?>#p<?= $post['id'] ?>"><?= $post['id'] ?></a>
-            </span>
             <?php if ($isOP): ?>
                 [<a href="/<?= $boardUri ?>/thread/<?= $post['id'] ?>" class="reply-link">Reply</a>]
             <?php endif; ?>
