@@ -1,3 +1,31 @@
+@font-face {
+  font-family: 'Liberation Mono';
+  src: url('/static/fonts/LiberationMono-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Monospace Typewriter';
+  src: url('/static/fonts/MonospaceTypewriter.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Terminal D400';
+  src: url('/static/fonts/Terminal F4.woff') format('woff'); /* The actual filename is Terminal F4.woff */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vera Mono';
+  src: url('/static/fonts/VeraMono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --bg-color: #111111;
   --font-color: #d6d6d6;
@@ -148,7 +176,7 @@
 }
 
 body {
-  font-family: arial, helvetica, sans-serif;
+  font-family: monospace;
   font-size: 13px;
   background-color: var(--bg-color);
   color: var(--font-color);
@@ -380,6 +408,7 @@ a:hover {
 
 .external-link:hover {
   color: var(--link-hover);
+  text-decoration: underline;
 }
 
 /* Responsive video embeds */
@@ -613,10 +642,18 @@ a:hover {
   color: var(--link-color);
 }
 
+.post-backlink {
+  color: var(--link-color);
+  margin-left: 5px;
+  font-size: 0.9em;
+}
+
 .post-body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.5;
+  /* Default font for post bodies, overridden by JavaScript if a custom font is selected */
+  font-family: var(--post-font-family, monospace);
 }
 
 .post-file {
@@ -885,4 +922,42 @@ pre {
   padding: 0;
   border: none;
   background: transparent;
+}
+
+.image-spoiler {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 15px 10px 0;
+    float: left; /* Keep consistency with .post-file */
+}
+
+.image-spoiler .post-thumb {
+    filter: blur(8px) brightness(0.5);
+    transition: filter 0.3s ease;
+    max-width: 200px; /* Ensure consistency with default thumb size */
+    max-height: 200px;
+    display: block;
+}
+
+.image-spoiler .spoiler-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.image-spoiler.revealed .post-thumb {
+    filter: none;
+}
+
+.image-spoiler.revealed .spoiler-overlay {
+    opacity: 0;
 }

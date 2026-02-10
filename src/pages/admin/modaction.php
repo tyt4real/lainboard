@@ -264,6 +264,22 @@ switch ($action) {
         header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
         break;
         
+    case 'censor_image':
+        requirePermission('censor_images');
+        $postId = intval($_GET['post'] ?? 0);
+
+        if (!verifyCSRFToken($_GET['csrf'] ?? '')) {
+            die('Invalid CSRF token');
+        }
+
+        $stmt = $pdo->prepare("UPDATE posts SET is_censored = NOT is_censored WHERE id = ?");
+        $stmt->execute([$postId]);
+
+        logModAction($staff['id'], 'toggle_censor_image', 'post', $postId);
+
+        header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+        break;
+        
     case 'resolve':
         requirePermission('view_reports');
         $reportId = intval($_GET['report'] ?? 0);

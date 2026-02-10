@@ -36,3 +36,4 @@ src/config.php
 tw.css
 
 node_modules/
+src/includes/database.php

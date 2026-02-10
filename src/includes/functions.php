@@ -29,6 +29,7 @@ function formatComment($comment, $boardUri, $currentThreadId = null) {
 
     $comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
 
+
     // Video embedding - process before other formatting
     $comment = preg_replace_callback('/https?:\/\/[^\s<>"\']+/i', function($matches) {
         $url = $matches[0];
@@ -37,14 +38,14 @@ function formatComment($comment, $boardUri, $currentThreadId = null) {
             return $embed;
         }
         // If not a video URL, return the original URL but make it clickable
-        return '<a href="' . htmlspecialchars($url) . '" target="_blank" rel="noopener noreferrer" class="external-link">' . htmlspecialchars($url) . '</a>';
+        return '<a href="' . $url . '" target="_blank" rel="noopener noreferrer" class="external-link">' . htmlspecialchars($url) . '</a>';
     }, $comment);
 
     // Handle crossboard quotes first: >>/board/postid
     $comment = preg_replace_callback('/&gt;&gt;\/([a-zA-Z0-9]+)\/(\d+)/', function($matches) {
         $targetBoard = $matches[1];
         $postId = $matches[2];
-        return '<a href="/' . htmlspecialchars($targetBoard) . '/thread/' . $postId . '#p' . $postId . '" class="quotelink">&gt;&gt;/' . htmlspecialchars($targetBoard) . '/' . $postId . '</a>';
+        return '<a href="/' . $targetBoard . '/thread/' . $postId . '#p' . $postId . '" class="quotelink">&gt;&gt;/' . htmlspecialchars($targetBoard) . '/' . $postId . '</a>';
     }, $comment);
 
     // Handle local quotes: >>postid
@@ -1165,6 +1166,25 @@ function formatFileSize($bytes) {
     if ($bytes >= 1048576) return round($bytes / 1048576, 2) . ' MB';
     if ($bytes >= 1024) return round($bytes / 1024, 2) . ' KB';
     return $bytes . ' B';
+}
+
+function getBacklinksForPost($postId, $boardId = null) {
+    error_log("getBacklinksForPost called for postId: " . $postId . " and boardId: " . ($boardId ?? 'null'));
+    $pdo = getDB();
+    $sql = "SELECT id FROM posts WHERE comment LIKE ? AND is_deleted = FALSE";
+    $params = ['%>>' . $postId . '%'];
+
+    if ($boardId !== null) {
+        $sql .= " AND board_id = ?";
+        $params[] = $boardId;
+    }
+
+    $stmt = $pdo->prepare($sql);
+    error_log("Backlinks SQL: " . $sql . ", Params: " . implode(', ', $params));
+    $stmt->execute($params);
+    $results = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    error_log("Backlinks found: " . implode(', ', $results));
+    return $results;
 }
 
 function applyWordFilters($text) {

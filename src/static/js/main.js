@@ -1,12 +1,13 @@
 // Global variable to track current expanded image
 let currentExpandedImage = null;
 
-function expandImage(thumb, fullUrl) {
+function expandImage(linkElement, fullUrl) {
     // If there's already an expanded image, close it first
     if (currentExpandedImage) {
         closeExpandedImage();
         // If we were clicking the same image, don't reopen it
-        if (currentExpandedImage === thumb) {
+        // Compare fullUrl to avoid issues with different linkElement references
+        if (currentExpandedImage.fullUrl === fullUrl) {
             currentExpandedImage = null;
             return;
         }
@@ -91,8 +92,8 @@ function expandImage(thumb, fullUrl) {
     overlay.appendChild(imageContainer);
     document.body.appendChild(overlay);
 
-    // Set current expanded image reference
-    currentExpandedImage = thumb;
+    // Store reference to the expanded image details for comparison
+    currentExpandedImage = { element: linkElement, fullUrl: fullUrl };
 
     // Add ESC key support
     document.addEventListener('keydown', handleKeyDown);
@@ -114,6 +115,24 @@ function handleKeyDown(e) {
     if (e.key === 'Escape' && currentExpandedImage) {
         closeExpandedImage();
     }
+}
+
+function toggleImageSpoiler(linkElement) {
+    const spoilerContainer = linkElement.closest('.image-spoiler');
+    if (!spoilerContainer) return false;
+
+    spoilerContainer.classList.toggle('revealed');
+
+    if (spoilerContainer.classList.contains('revealed')) {
+        // If revealed, potentially expand the image as well
+        expandImage(linkElement, linkElement.href);
+    } else {
+        // If re-censored, close the expanded image if it's currently this one
+        if (currentExpandedImage && currentExpandedImage.fullUrl === linkElement.href) {
+            closeExpandedImage();
+        }
+    }
+    return false; // Prevent default link behavior
 }
 
 // Enhanced quotelink hover previews with theme support
@@ -194,7 +213,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         thumb.addEventListener('mouseenter', function(e) {
             // Only create preview if the image isn't already expanded and no image is currently expanded
-            if (thumb.dataset.expanded !== 'true' && !currentExpandedImage) {
+            // Also, don't show hover preview if it's a censored image and not yet revealed
+            const spoilerContainer = thumb.closest('.image-spoiler');
+            if (thumb.dataset.expanded !== 'true' && !currentExpandedImage && (!spoilerContainer || spoilerContainer.classList.contains('revealed'))) {
                 preview = document.createElement('img');
                 preview.src = fullImageUrl;
                 preview.className = 'image-preview hover-preview';

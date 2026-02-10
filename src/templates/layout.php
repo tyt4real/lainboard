@@ -37,6 +37,15 @@ function renderHeader($title = null)
                 </select>
             </div>
             <?php endif; ?>
+            <div class="font-selector">
+                <select id="font-select">
+                    <option value="default">Default</option>
+                    <option value="Liberation Mono">Liberation Mono</option>
+                    <option value="Monospace Typewriter">Monospace Typewriter</option>
+                    <option value="Terminal D400">Terminal D400</option>
+                    <option value="Vera Mono">Vera Mono</option>
+                </select>
+            </div>
         </div>
 
         <div class="header">
@@ -220,6 +229,7 @@ function renderSettingsModal()
         <script src="/static/js/themeManager.js"></script>
         <script src="/static/js/webring.js"></script>
         <script src="/static/js/settings.js" data-cfasync="false"></script>
+        <script src="/static/js/fontManager.js"></script>
     </body>
 
     </html>
@@ -232,7 +242,7 @@ function renderSettingsModal()
         $staff = getCurrentStaff();
 ?>
     <div class="post <?= $isOP ? 'op' : '' ?> clearfix" id="p<?= $post['id'] ?>">
-        <?php if ($post['file_path']): ?>
+            <?php if ($post['file_path']): ?>
             <div class="post-file">
                 <div class="post-file-info">
                     <?php
@@ -253,11 +263,19 @@ function renderSettingsModal()
                     }
                     ?>)
                 </div>
-                <a href="<?= htmlspecialchars($post['file_path']) ?>" target="_blank" <?php if ($fileExt !== 'pdf'): ?>onclick="expandImage(this, '<?= htmlspecialchars($post['file_path']) ?>'); return false;"<?php endif; ?>>
-                    <img src="<?= htmlspecialchars($post['thumb_path']) ?>"
-                        alt="<?= htmlspecialchars($post['file_name']) ?>"
-                        class="post-thumb">
-                </a>
+                <?php $imgTag = '<img src="' . htmlspecialchars($post['thumb_path']) . '" alt="' . htmlspecialchars($post['file_name']) . '" class="post-thumb">'; ?>
+                <?php if ($post['is_censored']): ?>
+                    <div class="image-spoiler" data-post-id="<?= $post['id'] ?>">
+                        <a href="<?= htmlspecialchars($post['file_path']) ?>" target="_blank" <?php if ($fileExt !== 'pdf'): ?>onclick="toggleImageSpoiler(this); return false;"<?php endif; ?>>
+                            <?= $imgTag ?>
+                        </a>
+                        <div class="spoiler-overlay">CENSORED</div>
+                    </div>
+                <?php else: ?>
+                    <a href="<?= htmlspecialchars($post['file_path']) ?>" target="_blank" <?php if ($fileExt !== 'pdf'): ?>onclick="expandImage(this, '<?= htmlspecialchars($post['file_path']) ?>'); return false;"<?php endif; ?>>
+                        <?= $imgTag ?>
+                    </a>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
 
@@ -291,6 +309,14 @@ function renderSettingsModal()
             <?php endif; ?>
 
             <span class="post-date"><?= date('m/d/y(D)H:i:s', strtotime($post['created_at'])) ?></span>
+            <?php
+            $backlinks = getBacklinksForPost($post['id'], $post['board_id']);
+            if (!empty($backlinks)) {
+                foreach ($backlinks as $backlinkId) {
+                    echo "<span class=\"post-backlink\">&gt;&gt;<a href=\"/" . htmlspecialchars($boardUri) . "/thread/" . ($post['thread_id'] ?: $post['id']) . "#p" . $backlinkId . "\">" . $backlinkId . "</a></span> ";
+                }
+            }
+            ?>
             <span class="post-number">
                 No.<a class="post-number" href="/<?= $boardUri ?>/thread/<?= $isOP ? $post['id'] : $post['thread_id'] ?>#p<?= $post['id'] ?>"><?= $post['id'] ?></a>
             </span>
@@ -323,6 +349,9 @@ function renderSettingsModal()
                     <?php endif; ?>
                     <?php if ($isOP && hasPermission($staff['role'], 'lock_threads')): ?>
                         <a href="/admin/mod/lock?thread=<?= $post['id'] ?>&csrf=<?= generateCSRFToken() ?>">[<?= $post['is_locked'] ? 'Unlock' : 'Lock' ?>]</a>
+                    <?php endif; ?>
+                    <?php if (hasPermission($staff['role'], 'censor_images') && $post['file_path']): ?>
+                        <a href="/admin/mod/censor_image?post=<?= $post['id'] ?>&csrf=<?= generateCSRFToken() ?>" onclick="return confirm('<?= $post['is_censored'] ? 'Uncensor' : 'Censor' ?> this image?')">[<?= $post['is_censored'] ? 'Uncensor Image' : 'Censor Image' ?>]</a>
                     <?php endif; ?>
                 </span>
             <?php endif; ?>
