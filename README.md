@@ -81,6 +81,7 @@ Check out a working example at https://boards.lain.rocks/
  - Clientside settings - [X]
  - Administration notes shared among admins and mods - []
  - Categorizing content as NSFW / SFW - []
+ - BBCode per request - []
 
 ---
 
