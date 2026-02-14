@@ -682,13 +682,27 @@ a:hover {
   color: var(--quote-color);
 }
 
-.spoiler {
+.spoiler,
+.bb-spoiler {
   background: var(--spoiler-bg);
   color: var(--spoiler-color);
 }
 
-.spoiler:hover {
+.spoiler:hover,
+.bb-spoiler:hover {
   color: #fff;
+}
+
+/* BBCode text styles */
+.bb-bold { font-weight: bold; }
+.bb-italic { font-style: italic; }
+.bb-underline { text-decoration: underline; }
+.bb-strike { text-decoration: line-through; }
+
+/* Preformatted / monospace BBCode */
+.bb-pre {
+  font-family: var(--post-font-family, monospace);
+  white-space: pre-wrap;
 }
 
 .thread {

@@ -57,10 +57,21 @@ function formatComment($comment, $boardUri, $currentThreadId = null) {
 
     $comment = preg_replace('/^&gt;(.*)$/m', '<span class="greentext">&gt;$1</span>', $comment);
 
-    $comment = preg_replace('/\*\*(.+?)\*\*/', '<strong>$1</strong>', $comment);
-    $comment = preg_replace('/\*(.+?)\*/', '<em>$1</em>', $comment);
-    $comment = preg_replace('/\[spoiler\](.+?)\[\/spoiler\]/s', '<span class="spoiler">$1</span>', $comment);
-    //$comment = nl2br($comment);
+    // BBCode support: [b], [i], [u], [s], [spoiler]
+    $bbcode_patterns = [
+        '/\[b\](.*?)\[\/b\]/is' => '<span class="bb-bold">$1</span>',
+        '/\[i\](.*?)\[\/i\]/is' => '<span class="bb-italic">$1</span>',
+        '/\[u\](.*?)\[\/u\]/is' => '<span class="bb-underline">$1</span>',
+        '/\[s\](.*?)\[\/s\]/is' => '<span class="bb-strike">$1</span>',
+        '/\[spoiler\](.*?)\[\/spoiler\]/is' => '<span class="bb-spoiler">$1</span>',
+        '/\[pre\](.*?)\[\/pre\]/is' => '<span class="bb-pre">$1</span>',
+    ];
+    foreach ($bbcode_patterns as $pat => $rep) {
+        $comment = preg_replace($pat, $rep, $comment);
+    }
+
+    $comment = preg_replace('/\*\*(.+?)\*\*/s', '<span class="bb-bold">$1</span>', $comment);
+    $comment = preg_replace('/\*(.+?)\*/s', '<span class="bb-italic">$1</span>', $comment);
 
     return $comment;
 }
