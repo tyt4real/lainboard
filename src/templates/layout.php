@@ -358,12 +358,7 @@ function renderSettingsModal()
         </div>
 
         <div class="post-body">
-            <pre>
-<?php
-            $threadId = $post['thread_id'] ?: $post['id']; // If thread_id is null, it's an OP post, so thread_id = post id
-            echo formatComment($post['comment'], $boardUri, $threadId);
-            ?>
-            </pre>
+            <div class="post-text"><?php $threadId = $post['thread_id'] ?: $post['id']; echo formatComment($post['comment'], $boardUri, $threadId); ?></div>
         </div>
 
         <div style="font-size: 10px; margin-top: 5px;">

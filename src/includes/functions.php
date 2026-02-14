@@ -73,6 +73,30 @@ function formatComment($comment, $boardUri, $currentThreadId = null) {
     $comment = preg_replace('/\*\*(.+?)\*\*/s', '<span class="bb-bold">$1</span>', $comment);
     $comment = preg_replace('/\*(.+?)\*/s', '<span class="bb-italic">$1</span>', $comment);
 
+    // Inline emojis: tags like [/name] map to files in static/images/emojis/name.(png|gif|jpg|webp|svg)
+    // Match surrounding whitespace/newlines to avoid the emoji ending up on its own line.
+    $comment = preg_replace_callback('/\s*\[\/([a-zA-Z0-9_\-]+)\]\s*/', function($m) {
+        $name = strtolower($m[1]);
+        // Forbid names that conflict with formatting tags
+        $forbidden = ['b', 'i', 'u'];
+        if (in_array($name, $forbidden, true)) {
+            return ' ' . $m[0] . ' ';
+        }
+
+        $emojiDir = __DIR__ . '/../static/images/emojis/';
+        $matches = glob($emojiDir . $name . '.{png,gif,jpg,jpeg,webp,svg}', GLOB_BRACE);
+        if (empty($matches)) {
+            return $m[0];
+        }
+
+        // Use the first matching file
+        $filePath = $matches[0];
+        $relative = str_replace(__DIR__ . '/../', '', $filePath);
+        $url = '/' . $relative;
+        // Return the emoji with surrounding single spaces so it stays inline with surrounding text
+        return ' <span class="inline-emoji-wrapper"><img src="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '" alt=":' . htmlspecialchars($name) . ':" class="inline-emoji"></span> ';
+    }, $comment);
+
     return $comment;
 }
 

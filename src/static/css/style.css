@@ -705,6 +705,19 @@ a:hover {
   white-space: pre-wrap;
 }
 
+/* Inline emoji images */
+.inline-emoji {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+}
+
+.inline-emoji-wrapper {
+  display: inline-block;
+  line-height: 1;
+}
+
 .thread {
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -926,7 +939,8 @@ a:hover {
   }
 }
 
-pre {
+/* Use .post-text instead of raw <pre> to allow inline HTML + preserved whitespace */
+.post-text {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
