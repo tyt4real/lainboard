@@ -51,7 +51,32 @@ function formatComment($comment, $boardUri, $currentThreadId = null) {
     // Handle local quotes: >>postid
     $comment = preg_replace_callback('/&gt;&gt;(\d+)/', function($matches) use ($boardUri, $currentThreadId) {
         $postId = $matches[1];
-        $threadId = $currentThreadId ?: $postId; // Fallback to postId if no thread ID provided
+
+        // Try to resolve the actual board and thread for the referenced post.
+        try {
+            $pdo = getDB();
+            $stmt = $pdo->prepare("SELECT p.thread_id, b.uri AS board_uri FROM posts p JOIN boards b ON p.board_id = b.id WHERE p.id = ? AND p.is_deleted = FALSE LIMIT 1");
+            $stmt->execute([$postId]);
+            $row = $stmt->fetch();
+        } catch (Exception $e) {
+            $row = false;
+        }
+
+        if ($row) {
+            $targetBoard = $row['board_uri'];
+            $targetThread = $row['thread_id'] ?: $postId; // if it's an OP, its thread id is the post id
+
+            // If the referenced post lives on a different board, show cross-board style >>/board/postid
+            if ($targetBoard !== $boardUri) {
+                return '<a href="/' . $targetBoard . '/thread/' . $targetThread . '#p' . $postId . '" class="quotelink">&gt;&gt;/' . htmlspecialchars($targetBoard) . '/' . $postId . '</a>';
+            }
+
+            // Same board: link to the correct thread (may be the post's own thread)
+            return '<a href="/' . $boardUri . '/thread/' . $targetThread . '#p' . $postId . '" class="quotelink">&gt;&gt;' . $postId . '</a>';
+        }
+
+        // Fallback: assume local to current thread (original behavior)
+        $threadId = $currentThreadId ?: $postId;
         return '<a href="/' . $boardUri . '/thread/' . $threadId . '#p' . $postId . '" class="quotelink">&gt;&gt;' . $postId . '</a>';
     }, $comment);
 

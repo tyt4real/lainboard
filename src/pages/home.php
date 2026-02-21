@@ -105,6 +105,13 @@ function renderPostCount()
                 <img src="https://rain.meth.cat/banners/rainchan.gif" alt="Rainchan" style="margin-bottom: 10px;">
             </div>
     </a>
+    <a href="https://arisuchan.xyz/">
+        <img 
+            src="/static/images/arisuchan.png" 
+            alt="Arisuchan"
+            class="mb-2"
+        >
+    </a>
     </div>
 </div>
 

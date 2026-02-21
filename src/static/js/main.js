@@ -135,7 +135,7 @@ function toggleImageSpoiler(linkElement) {
     return false; // Prevent default link behavior
 }
 
-// Enhanced quotelink hover previews with theme support
+// Enhanced quotelink hover previews with theme support (positioned at mouse)
 document.querySelectorAll('.quotelink').forEach(function(link) {
     link.addEventListener('mouseenter', function(e) {
         var postId = this.textContent.replace('>>', '');
@@ -165,47 +165,54 @@ document.querySelectorAll('.quotelink').forEach(function(link) {
                 line-height: 1.4;
             `;
 
-            // Position the preview intelligently
-            var rect = link.getBoundingClientRect();
-            var previewRect = preview.getBoundingClientRect();
-
-            // Try to position to the right first
-            var left = rect.right + 10;
-            var top = rect.top;
-
-            // If it would go off-screen to the right, position to the left
-            if (left + 400 > window.innerWidth) {
-                left = rect.left - 410;
-            }
-
-            // If it would go off-screen to the left, center it
-            if (left < 10) {
-                left = Math.max(10, (window.innerWidth - 400) / 2);
-            }
-
-            // Adjust vertical position if needed
-            if (top + 300 > window.innerHeight) {
-                top = window.innerHeight - 310;
-            }
-
-            preview.style.left = left + 'px';
-            preview.style.top = top + 'px';
             preview.id = 'quote-preview-' + postId;
-
             document.body.appendChild(preview);
+
+            // Positioning function that keeps preview on-screen and follows cursor
+            function positionPreview(clientX, clientY) {
+                var mouseX = clientX;
+                var mouseY = clientY;
+                var maxW = 400;
+                var maxH = 300;
+                var left = mouseX + 12;
+                var top = mouseY + 12;
+
+                if (left + maxW > window.innerWidth) {
+                    left = mouseX - 12 - maxW;
+                }
+                if (left < 10) {
+                    left = Math.max(10, (window.innerWidth - maxW) / 2);
+                }
+                if (top + maxH > window.innerHeight) {
+                    top = Math.max(10, window.innerHeight - maxH - 10);
+                }
+                if (top < 10) top = 10;
+
+                preview.style.left = left + 'px';
+                preview.style.top = top + 'px';
+            }
+
+            // Initial placement and follow mouse
+            positionPreview(e.clientX, e.clientY);
+            var moveHandler = function(ev) { positionPreview(ev.clientX, ev.clientY); };
+            document.addEventListener('mousemove', moveHandler);
+
+            // Store cleanup so mouseleave can remove preview and handler
+            link._quotePreviewCleanup = function() {
+                document.removeEventListener('mousemove', moveHandler);
+                var p = document.getElementById('quote-preview-' + postId);
+                if (p) p.remove();
+                delete link._quotePreviewCleanup;
+            };
         }
     });
 
     link.addEventListener('mouseleave', function() {
-        var postId = this.textContent.replace('>>', '');
-        var preview = document.getElementById('quote-preview-' + postId);
-        if (preview) {
-            preview.remove();
-        }
+        if (link._quotePreviewCleanup) link._quotePreviewCleanup();
     });
 });
 
-// Image hover previews
+// Image hover previews (follow mouse, respect spoilers)
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.post-thumb').forEach(function(thumb) {
         var fullImageUrl = thumb.src.replace('/uploads/thumbnails/', '/uploads/');
@@ -231,43 +238,55 @@ document.addEventListener('DOMContentLoaded', function() {
                     display: none;
                 `;
 
-                // Position the preview
-                var rect = thumb.getBoundingClientRect();
-                var left = rect.right + 10;
-                var top = rect.top;
+                document.body.appendChild(preview);
 
-                // If it would go off-screen to the right, position to the left
-                if (left + 400 > window.innerWidth) {
-                    left = rect.left - 410;
+                // Positioning function that keeps preview on-screen and follows cursor
+                function positionPreview(clientX, clientY) {
+                    var mouseX = clientX;
+                    var mouseY = clientY;
+                    var maxW = 400;
+                    var maxH = 400;
+                    var left = mouseX + 10;
+                    var top = mouseY - 10;
+
+                    if (left + maxW > window.innerWidth) {
+                        left = mouseX - 10 - maxW;
+                    }
+
+                    if (left < 10) {
+                        left = Math.max(10, (window.innerWidth - maxW) / 2);
+                    }
+
+                    if (top + maxH > window.innerHeight) {
+                        top = Math.max(10, window.innerHeight - maxH - 10);
+                    }
+                    if (top < 10) top = 10;
+
+                    preview.style.left = left + 'px';
+                    preview.style.top = top + 'px';
                 }
 
-                // If it would go off-screen to the left, center it
-                if (left < 10) {
-                    left = Math.max(10, (window.innerWidth - 400) / 2);
-                }
-
-                // Adjust vertical position if needed
-                if (top + 400 > window.innerHeight) {
-                    top = window.innerHeight - 410;
-                }
-
-                preview.style.left = left + 'px';
-                preview.style.top = top + 'px';
+                // Initial placement and follow mouse
+                positionPreview(e.clientX, e.clientY);
+                var moveHandler = function(ev) { positionPreview(ev.clientX, ev.clientY); };
+                document.addEventListener('mousemove', moveHandler);
 
                 // Load the image first, then show it
                 preview.onload = function() {
                     preview.style.display = 'block';
                 };
 
-                document.body.appendChild(preview);
+                // Store cleanup
+                thumb._imagePreviewCleanup = function() {
+                    document.removeEventListener('mousemove', moveHandler);
+                    if (preview) { preview.remove(); preview = null; }
+                    delete thumb._imagePreviewCleanup;
+                };
             }
         });
 
         thumb.addEventListener('mouseleave', function() {
-            if (preview) {
-                preview.remove();
-                preview = null;
-            }
+            if (thumb._imagePreviewCleanup) thumb._imagePreviewCleanup();
         });
 
         // Also hide preview when moving mouse away from the thumbnail area
@@ -278,10 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var y = e.clientY;
 
             if (x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) {
-                if (preview) {
-                    preview.remove();
-                    preview = null;
-                }
+                if (thumb._imagePreviewCleanup) thumb._imagePreviewCleanup();
             }
         });
     });
@@ -292,8 +308,31 @@ document.querySelectorAll('.post-number a').forEach(function(link) {
         var textarea = document.querySelector('textarea[name="comment"]');
         if (textarea) {
             e.preventDefault();
-            var postId = this.textContent;
-            textarea.value += '>>' + postId + '\n';
+            var postId = this.textContent.trim();
+
+            // Determine whether the link points to a different thread/board.
+            // If so, insert a cross-board/thread quote like ">>/board/postid" so
+            // it navigates to that thread instead of being interpreted as a
+            // reply in the current thread.
+            try {
+                var url = new URL(this.getAttribute('href'), window.location.origin);
+                var parts = url.pathname.split('/').filter(Boolean); // [board, 'thread', id]
+                var targetBoard = parts[0] || null;
+                var targetThread = parts[2] || null;
+
+                var currentParts = window.location.pathname.split('/').filter(Boolean);
+                var currentBoard = currentParts[0] || null;
+                var currentThread = (currentParts[1] === 'thread' && currentParts[2]) ? currentParts[2] : null;
+
+                if (targetBoard && targetThread && (targetBoard !== currentBoard || targetThread !== currentThread)) {
+                    textarea.value += '>>/' + targetBoard + '/' + postId + '\n';
+                } else {
+                    textarea.value += '>>' + postId + '\n';
+                }
+            } catch (err) {
+                // Fallback: normal local-style quote
+                textarea.value += '>>' + postId + '\n';
+            }
             textarea.focus();
         }
     });
