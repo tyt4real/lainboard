@@ -680,7 +680,7 @@ a:hover {
 
 .greentext {
   color: var(--quote-color);
-  display: block;
+  display: inline-block;
 }
 
 .spoiler,
