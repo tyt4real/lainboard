@@ -680,6 +680,7 @@ a:hover {
 
 .greentext {
   color: var(--quote-color);
+  display: block;
 }
 
 .spoiler,
@@ -944,7 +945,7 @@ a:hover {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
-  white-space: pre-wrap;
+  white-space: pre-line;
   word-wrap: break-word;
   margin: 0;
   padding: 0;

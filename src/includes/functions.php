@@ -97,7 +97,7 @@ function formatComment($comment, $boardUri, $currentThreadId = null) {
 
     $comment = preg_replace('/\*\*(.+?)\*\*/s', '<span class="bb-bold">$1</span>', $comment);
     $comment = preg_replace('/\*(.+?)\*/s', '<span class="bb-italic">$1</span>', $comment);
-
+    
     // Inline emojis: tags like [/name] map to files in static/images/emojis/name.(png|gif|jpg|webp|svg)
     // Match surrounding whitespace/newlines to avoid the emoji ending up on its own line.
     $comment = preg_replace_callback('/\s*\[\/([a-zA-Z0-9_\-]+)\]\s*/', function($m) {
@@ -121,7 +121,6 @@ function formatComment($comment, $boardUri, $currentThreadId = null) {
         // Return the emoji with surrounding single spaces so it stays inline with surrounding text
         return ' <span class="inline-emoji-wrapper"><img src="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '" alt=":' . htmlspecialchars($name) . ':" class="inline-emoji"></span> ';
     }, $comment);
-
     return $comment;
 }
 
@@ -1229,7 +1228,7 @@ function formatFileSize($bytes) {
 }
 
 function getBacklinksForPost($postId, $boardId = null) {
-    error_log("getBacklinksForPost called for postId: " . $postId . " and boardId: " . ($boardId ?? 'null'));
+    //error_log("getBacklinksForPost called for postId: " . $postId . " and boardId: " . ($boardId ?? 'null'));
     $pdo = getDB();
     $sql = "SELECT id FROM posts WHERE comment LIKE ? AND is_deleted = FALSE";
     $params = ['%>>' . $postId . '%'];
@@ -1240,10 +1239,10 @@ function getBacklinksForPost($postId, $boardId = null) {
     }
 
     $stmt = $pdo->prepare($sql);
-    error_log("Backlinks SQL: " . $sql . ", Params: " . implode(', ', $params));
+    //error_log("Backlinks SQL: " . $sql . ", Params: " . implode(', ', $params));
     $stmt->execute($params);
     $results = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    error_log("Backlinks found: " . implode(', ', $results));
+    //error_log("Backlinks found: " . implode(', ', $results));
     return $results;
 }
 
