@@ -33,7 +33,7 @@ function renderPostCount()
 </div>
 
 <div class="section rounded-[5px]">
-    <div class="section-header">Popular threads</div>
+    <div class="section-header">Recent threads</div>
     <div class="section-content">
         <?php if (empty($popularThreads)): ?>
             <p>No threads yet. Be the first to post!</p>

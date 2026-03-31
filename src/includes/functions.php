@@ -1123,11 +1123,18 @@ function getLatestReplies($threadId, $limit = 5) {
 function getPopularThreads($limit = 10) {
     $pdo = getDB();
     $stmt = $pdo->prepare("
-        SELECT p.*, b.uri as board_uri, b.title as board_title
+        SELECT
+            p.*,
+            b.uri as board_uri,
+            b.title as board_title,
+            (
+                p.reply_count::float
+                / GREATEST(EXTRACT(EPOCH FROM (NOW() - p.bumped_at)), 1)
+            ) as frecency_score
         FROM posts p
         JOIN boards b ON p.board_id = b.id
         WHERE p.thread_id IS NULL AND p.is_deleted = FALSE AND p.reply_count > 0
-        ORDER BY p.reply_count DESC, p.bumped_at DESC
+        ORDER BY frecency_score DESC, p.bumped_at DESC
         LIMIT ?
     ");
     $stmt->execute([$limit]);
