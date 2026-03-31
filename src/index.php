@@ -78,6 +78,13 @@ try {
         header('Content-Type: application/json; charset=utf-8');
         readfile(__DIR__ . '/includes/webring/webring.json');
     }
+    elseif($path === '/api/status.json') {
+        header('Content-Type: application/json; charset=utf-8');
+        $pdo = getDB();
+        $stmt = $pdo->query("SELECT COUNT(*) AS post_count FROM posts");
+        $postCount = $stmt->fetch()['post_count'];
+        echo json_encode(['posts' => (int)$postCount]);
+    }
     elseif($path === '/webring/compiled_webring.json') {
         header('Content-Type: application/json; charset=utf-8');
         readfile(__DIR__ . '/includes/webring/compiled_webring.json');
